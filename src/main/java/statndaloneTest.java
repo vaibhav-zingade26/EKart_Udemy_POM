@@ -65,8 +65,6 @@ public class statndaloneTest {
         //driver.findElement(By.cssSelector(".totalRow button")).click();
         driver.findElement(By.xpath("//button[normalize-space()='Checkout']")).click();
         driver.findElement(By.xpath("//input[@placeholder='Select Country']")).sendKeys("India");
-
-
         w.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".ta-results")));
         driver.findElement(By.cssSelector(".ta-results button:nth-of-type(2)")).click();
         driver.findElement(By.xpath("//a[@class='btnn action__submit ng-star-inserted']")).click();

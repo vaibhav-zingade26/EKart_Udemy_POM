@@ -1,7 +1,6 @@
 package PageObjects;
 
 import Utilities.base;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -27,13 +26,17 @@ public class LandingPage extends base {
     @FindBy(id="login")
     WebElement login;
 
-    public void loginApp(String emailId,String Password){
+    public dashboardPage loginApp(String emailId, String Password) throws InterruptedException {
         email.sendKeys(emailId);
         pwd.sendKeys(Password);
         login.click();
+        zoomOutWebPage();
+        dashboardPage dashboardPage = new dashboardPage(driver);
+        return dashboardPage;
+
     }
     public void goTo(){
-        driver.get("");
+        driver.get("https://rahulshettyacademy.com/client");
     }
 
 }

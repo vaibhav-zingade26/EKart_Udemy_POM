@@ -3,6 +3,9 @@ package Utilities;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -12,7 +15,12 @@ public class base {
     WebDriver driver;
     public base(WebDriver driver){
         this.driver=driver;
+        PageFactory.initElements(driver,this);
     }
+
+    @FindBy(css="[routerlink*='cart']")
+    WebElement cart;
+
     public void zoomOutWebPage() throws InterruptedException {
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         Thread.sleep(100);
@@ -25,5 +33,16 @@ public class base {
     public void explicitWait(By locator){
         WebDriverWait w= new WebDriverWait(driver, Duration.ofSeconds(10));
         w.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
+
+    public void explicitWait(WebElement ele){
+        WebDriverWait w= new WebDriverWait(driver, Duration.ofSeconds(10));
+        w.until(ExpectedConditions.visibilityOf(ele));
+    }
+
+    public void goToCart() throws InterruptedException {
+        Thread.sleep(1000);
+        //explicitWait(cart);
+        cart.click();
     }
 }
