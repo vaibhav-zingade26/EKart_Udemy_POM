@@ -1,12 +1,12 @@
 package PageObjects;
 
-import Utilities.base;
+import Utilities.abstractCommanMethod;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LandingPage extends base {
+public class LandingPage extends abstractCommanMethod {
     WebDriver driver;
 
     public LandingPage( WebDriver driver){

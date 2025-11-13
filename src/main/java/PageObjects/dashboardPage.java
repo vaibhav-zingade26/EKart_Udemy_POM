@@ -1,6 +1,6 @@
 package PageObjects;
 
-import Utilities.base;
+import Utilities.abstractCommanMethod;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class dashboardPage extends base {
+public class dashboardPage extends abstractCommanMethod {
 
     WebDriver driver;
 

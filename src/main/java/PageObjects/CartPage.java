@@ -1,12 +1,12 @@
 package PageObjects;
 
-import Utilities.base;
+import Utilities.abstractCommanMethod;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class CartPage extends base {
+public class CartPage extends abstractCommanMethod {
     WebDriver driver;
 
     public CartPage(WebDriver driver) {
@@ -15,10 +15,12 @@ public class CartPage extends base {
         PageFactory.initElements(driver,this);
     }
     @FindBy (xpath="//button[normalize-space()='Checkout']")
-    WebElement CheckOut;
+    WebElement checkOut;
 
-    public void checkOut(){
-
+    public PlaceOrder checkOut(){
+    checkOut.click();
+    PlaceOrder submitOrder = new PlaceOrder(driver);
+    return submitOrder;
     }
 
 }

@@ -1,5 +1,6 @@
 package Utilities;
 
+import PageObjects.CartPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -11,9 +12,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class base {
+public class abstractCommanMethod {
     WebDriver driver;
-    public base(WebDriver driver){
+    public abstractCommanMethod(WebDriver driver){
         this.driver=driver;
         PageFactory.initElements(driver,this);
     }
@@ -40,9 +41,11 @@ public class base {
         w.until(ExpectedConditions.visibilityOf(ele));
     }
 
-    public void goToCart() throws InterruptedException {
+    public CartPage goToCart() throws InterruptedException {
         Thread.sleep(1000);
         //explicitWait(cart);
         cart.click();
+        CartPage cartPage = new CartPage(driver);
+        return cartPage;
     }
 }
