@@ -26,6 +26,12 @@ public class LandingPage extends abstractCommanMethod {
     @FindBy(id="login")
     WebElement login;
 
+    //div[aria-label='Incorrect email or password.']
+    //document.querySelector(".ng-tns-c4-8.ng-star-inserted.ng-trigger.ng-trigger-flyInOut.ngx-toastr.toast-error")
+
+    @FindBy(xpath = "//div[@aria-label='Incorrect email or password.']")
+    WebElement errorMessage;
+
     public dashboardPage loginApp(String emailId, String Password) throws InterruptedException {
         email.sendKeys(emailId);
         pwd.sendKeys(Password);
@@ -37,6 +43,11 @@ public class LandingPage extends abstractCommanMethod {
     }
     public void goTo(){
         driver.get("https://rahulshettyacademy.com/client");
+    }
+
+    public String errorMSg(){
+        explicitWait(errorMessage);
+        return errorMessage.getText();
     }
 
 }
