@@ -1,6 +1,7 @@
 package Utilities;
 
 import PageObjects.CartPage;
+import PageObjects.OrderPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -21,6 +22,9 @@ public class abstractCommanMethod {
 
     @FindBy(css="[routerlink*='cart']")
     WebElement cart;
+
+    @FindBy(css="[routerlink*='myorders']")
+    WebElement orders;
 
     public void zoomOutWebPage() throws InterruptedException {
         JavascriptExecutor jse = (JavascriptExecutor) driver;
@@ -47,5 +51,11 @@ public class abstractCommanMethod {
         cart.click();
         CartPage cartPage = new CartPage(driver);
         return cartPage;
+    }
+
+    public OrderPage goToOrders(){
+        orders.click();
+        OrderPage orderPage=new OrderPage(driver);
+        return orderPage;
     }
 }

@@ -71,6 +71,9 @@ public class statndaloneTest {
         String confirmMsg=driver.findElement(By.cssSelector(".hero-primary")).getText();
         Assert.assertEquals(confirmMsg,"THANKYOU FOR THE ORDER.");
 
+        driver.findElement(By.cssSelector("[routerlink*='myorders']")).click();
+        List<WebElement> orderedProducts=driver.findElements(By.cssSelector("tr td:nth-child(3)"));
+
 
 
 

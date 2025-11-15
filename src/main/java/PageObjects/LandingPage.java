@@ -32,6 +32,9 @@ public class LandingPage extends abstractCommanMethod {
     @FindBy(xpath = "//div[@aria-label='Incorrect email or password.']")
     WebElement errorMessage;
 
+    @FindBy(xpath="//div[contains(text(), 'Email')]")
+    WebElement errForEmail;
+
     public dashboardPage loginApp(String emailId, String Password) throws InterruptedException {
         email.sendKeys(emailId);
         pwd.sendKeys(Password);
@@ -48,6 +51,12 @@ public class LandingPage extends abstractCommanMethod {
     public String errorMSg(){
         explicitWait(errorMessage);
         return errorMessage.getText();
+    }
+
+    public String emailWrongValidations() throws InterruptedException {
+        //explicitWait(errForEmail);
+        Thread.sleep(1000);
+        return errForEmail.getText();
     }
 
 }

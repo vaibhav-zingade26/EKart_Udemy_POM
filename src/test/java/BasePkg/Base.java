@@ -17,8 +17,7 @@ public class Base {
     WebDriver driver;
     LandingPage landingPage;
 
-
-    public LandingPage launchApplication() throws IOException {
+    public WebDriver initilizeDriver() throws IOException {
         Properties prop=new Properties();
         FileInputStream fis= new FileInputStream(System.getProperty("user.dir")+"//src//main//resources//GlobalData.properties");
         prop.load(fis);
@@ -32,12 +31,17 @@ public class Base {
 
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        return driver;
+    }
+    @BeforeTest
+    public LandingPage launchApplication() throws IOException {
+        driver=initilizeDriver();
         landingPage = new LandingPage(driver);
         landingPage.goTo();
         return landingPage;
     }
 
-    @AfterTest
+    @AfterMethod
     public void closeDriver(){
         driver.quit();
     }

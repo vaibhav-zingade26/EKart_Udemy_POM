@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite">
+<suite name="All Test Suite" parallel="false">
 
-    <test thread-count="5" name="NEGATIVE">
+    <test thread-count="5" name="NEGATIVE" preserve-order="true">
         <classes>
             <class name="Test.errorValidations">
                 <methods>
-                    <include name="TC01"/>
+                    <include name="TC01"></include>
+                    <include name="TC02"></include>
                 </methods>
             </class>
         </classes>
     </test>
 
-    <test name="POSITIVE" thread-count="5">
+    <test name="POSITIVE" thread-count="5" preserve-order="true">
         <classes>
             <class name="Test.submitOrder">
                 <methods>
-                    <include name="TC01"/>
+                    <include name="TC01"></include>
+                    <include name="TC02"></include>
                 </methods>
             </class>
         </classes>
