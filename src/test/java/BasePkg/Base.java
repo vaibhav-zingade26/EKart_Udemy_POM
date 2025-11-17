@@ -33,7 +33,7 @@ public class Base {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         return driver;
     }
-    @BeforeTest
+    @BeforeMethod
     public LandingPage launchApplication() throws IOException {
         driver=initilizeDriver();
         landingPage = new LandingPage(driver);
@@ -44,5 +44,6 @@ public class Base {
     @AfterMethod
     public void closeDriver(){
         driver.quit();
+
     }
 }

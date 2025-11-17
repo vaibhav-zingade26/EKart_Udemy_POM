@@ -1,28 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite" parallel="false">
-
-    <test thread-count="5" name="NEGATIVE" preserve-order="true">
-        <classes>
-            <class name="Test.errorValidations">
-                <methods>
-                    <include name="TC01"></include>
-                    <include name="TC02"></include>
-                </methods>
-            </class>
-        </classes>
-    </test>
-
-    <test name="POSITIVE" thread-count="5" preserve-order="true">
+<suite name="All Test Suite" parallel="tests">
+    <test verbose="2" preserve-order="true"
+          name="C:/Users/vacz2/OneDrive/Desktop/Selenium_Frameworks/EKart_Udemy_POM/src/test/java/Test/submitOrder.java">
         <classes>
             <class name="Test.submitOrder">
                 <methods>
-                    <include name="TC01"></include>
-                    <include name="TC02"></include>
+                    <include name="TC01"/>
+                    <include name="TC02"/>
                 </methods>
             </class>
         </classes>
     </test>
-
+    <test verbose="2" preserve-order="true"
+          name="C:/Users/vacz2/OneDrive/Desktop/Selenium_Frameworks/EKart_Udemy_POM/src/test/java/Test/errorValidations.java">
+        <classes>
+            <class name="Test.errorValidations">
+                <methods>
+                    <include name="TC01"/>
+                    <include name="TC02"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 </suite>
-

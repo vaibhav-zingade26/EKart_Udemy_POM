@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite" parallel="tests">
+    <groups>
+        <run>
+            <include name="Purchase"/>
+        </run>
+    </groups>
+    <test verbose="2" preserve-order="true"
+          name="C:/Users/vacz2/OneDrive/Desktop/Selenium_Frameworks/EKart_Udemy_POM/src/test/java/Test/submitOrder.java">
+        <classes>
+            <class name="Test.submitOrder">
+            </class>
+        </classes>
+    </test>
+
+</suite>
