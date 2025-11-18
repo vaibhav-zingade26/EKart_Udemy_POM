@@ -26,8 +26,22 @@ public class statndaloneTest {
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.get("https://rahulshettyacademy.com/client");
-        LandingPage landingPage = new LandingPage(driver);
+       // driver.get("https://rahulshettyacademy.com/client");
+        driver.get("https://demoqa.com/webtables");
+        List<WebElement> header =driver.findElements(By.xpath("div.rt-resizable-header-content"));
+
+       /* for(WebElement a:header){
+            System.out.print(a.getText()+" ");
+        }*/
+
+        String sal=driver.findElement(By.xpath("//div[contains(text(),'Cierra')]/following-sibling::div[3]")).getText();
+
+
+
+
+
+
+     /*   LandingPage landingPage = new LandingPage(driver);
         driver.findElement(By.id("userEmail")).sendKeys("vaibhav26@gmail.com");
         driver.findElement(By.id("userPassword")).sendKeys("VacZ@1234");
         driver.findElement(By.id("login")).click();
@@ -42,7 +56,7 @@ public class statndaloneTest {
         desiredProd.findElement(By.cssSelector(".card-body button:last-of-type")).click();
 
         Thread.sleep(1000);
-        driver.findElement(By.cssSelector("[routerlink*='cart']")).click();
+        driver.findElement(By.cssSelector("[routerlink*='cart']")).click();*/
        //boolean b=driver.findElement(By.cssSelector("cartSection h3")).isDisplayed();
         //Assert.assertTrue(b);
         ////input[@placeholder='Select Country']
@@ -52,18 +66,18 @@ public class statndaloneTest {
         a.scrollToElement(driver.findElement(By.cssSelector(".totalRow button")));*/
 
         /*Zoom out */
-        JavascriptExecutor jse = (JavascriptExecutor) driver;
+       /* JavascriptExecutor jse = (JavascriptExecutor) driver;
         Thread.sleep(100);
         // Zoom out the page to 50%
         //System.out.println("Zooming out to 50%");
         jse.executeScript("document.body.style.zoom='70%'");
-        Thread.sleep(100);
+        Thread.sleep(100);*/
 
       /*  WebDriverWait w= new WebDriverWait(driver,Duration.ofSeconds(10));
         w.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".totalRow button")));*/
 
         //driver.findElement(By.cssSelector(".totalRow button")).click();
-        driver.findElement(By.xpath("//button[normalize-space()='Checkout']")).click();
+        /*driver.findElement(By.xpath("//button[normalize-space()='Checkout']")).click();
         driver.findElement(By.xpath("//input[@placeholder='Select Country']")).sendKeys("India");
         w.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".ta-results")));
         driver.findElement(By.cssSelector(".ta-results button:nth-of-type(2)")).click();
@@ -72,7 +86,7 @@ public class statndaloneTest {
         Assert.assertEquals(confirmMsg,"THANKYOU FOR THE ORDER.");
 
         driver.findElement(By.cssSelector("[routerlink*='myorders']")).click();
-        List<WebElement> orderedProducts=driver.findElements(By.cssSelector("tr td:nth-child(3)"));
+        List<WebElement> orderedProducts=driver.findElements(By.cssSelector("tr td:nth-child(3)"));*/
 
 
 
