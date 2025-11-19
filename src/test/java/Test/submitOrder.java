@@ -8,6 +8,9 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 
 public class submitOrder extends Base {
     String productName="ADIDAS ORIGINAL";
@@ -16,7 +19,7 @@ public class submitOrder extends Base {
     @Test(groups = "Purchase")
     public void TC01() throws InterruptedException, IOException {
         //submt the order
-        LandingPage landingPage=launchApplication();
+        //LandingPage landingPage=launchApplication();
         dashboardPage dashboardPage=landingPage.loginApp("vaibhav26@gmail.com","VacZ@1234");
         dashboardPage.addProductToCart(productName);
         CartPage cartPage=dashboardPage.goToCart();
@@ -28,7 +31,6 @@ public class submitOrder extends Base {
     @Test(dependsOnMethods = {"TC01"})
     public void TC02() throws IOException, InterruptedException {
         //In orders page verify submitted order
-        LandingPage landingPage=launchApplication();
         dashboardPage dashboardPage=landingPage.loginApp("vaibhav26@gmail.com","VacZ@1234");
         OrderPage orderPage =dashboardPage.goToOrders();
         Assert.assertTrue(orderPage.validateProductOrdered(productName));
@@ -36,7 +38,6 @@ public class submitOrder extends Base {
 
     @Test (dataProvider="getData")
     public void TC_03_UsingDataProvider(String email,String pwd,String product) throws IOException, InterruptedException {
-        LandingPage landingPage=launchApplication();
         dashboardPage dashboardPage=landingPage.loginApp(email,pwd);
         dashboardPage.addProductToCart(product);
         CartPage cartPage=dashboardPage.goToCart();
@@ -47,7 +48,6 @@ public class submitOrder extends Base {
 
     @Test (dataProvider="getDataUsingMap" , groups = "Purchase")
     public void TC_04_UsingDataProvider_HasMap(HashMap<String,String>input) throws IOException, InterruptedException {
-        LandingPage landingPage=launchApplication();
         dashboardPage dashboardPage=landingPage.loginApp(input.get("email"),input.get("pwd"));
         dashboardPage.addProductToCart(input.get("product"));
         CartPage cartPage=dashboardPage.goToCart();
@@ -62,8 +62,8 @@ public class submitOrder extends Base {
     }
 
     @DataProvider
-    public Object[][] getDataUsingMap(){
-        HashMap<String,String >map1=new HashMap<>();
+    public Object[][] getDataUsingMap() throws IOException {
+        /*HashMap<String,String >map1=new HashMap<>();
         map1.put("email","vaibhav26@gmail.com");
         map1.put("pwd","VacZ@1234");
         map1.put("product","ADIDAS ORIGINAL");
@@ -71,9 +71,10 @@ public class submitOrder extends Base {
         HashMap<String,String >map2=new HashMap<>();
         map2.put("email","VacZ@9464.com");
         map2.put("pwd","VacZ@9464");
-        map2.put("product","ZARA COAT 3");
+        map2.put("product","ZARA COAT 3");*/
+        List<HashMap<String,String>>data=getJsonIntoHashMap(System.getProperty("user.dir")+"//src//main//java//data//data.json");
 
-        return new Object[][] { {map1},{map2} };
+        return new Object[][] { {data.get(0)},{data.get(1)} };
     }
 
 
