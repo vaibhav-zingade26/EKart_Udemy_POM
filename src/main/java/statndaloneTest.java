@@ -1,40 +1,64 @@
-import PageObjects.LandingPage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
 
 
 /*
-* username=vaibhav26@gmail.com
-* pwd=VacZ@1234
-*
-* id="userEmail"  id="userPassword"  id="login"
-* */
+ * username=vaibhav26@gmail.com
+ * pwd=VacZ@1234
+ *
+ * id="userEmail"  id="userPassword"  id="login"
+ * */
 
 public class statndaloneTest {
-    public static void main(String[] args) throws InterruptedException {
-        WebDriver driver = new ChromeDriver();
+
+    ExtentReports extent;
+
+    @BeforeTest
+    public void config() {
+        //extentreports extentsparkreports
+        String path = System.getProperty("user.dir") + "\\Reports\\index.html";
+        ExtentSparkReporter reporter = new ExtentSparkReporter(path);
+        reporter.config().setDocumentTitle("Standalone Report");
+        reporter.config().setReportName("StandAloneReport");
+
+        extent = new ExtentReports();
+        extent.attachReporter(reporter);
+    }
+
+    @Test
+    public void tc01() throws IOException {
+        //extentreports extentsSpark
+        ExtentTest t = extent.createTest("TC01");
+         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-       // driver.get("https://rahulshettyacademy.com/client");
+        // driver.get("https://rahulshettyacademy.com/client");
         driver.get("https://demoqa.com/webtables");
-        List<WebElement> header =driver.findElements(By.xpath("div.rt-resizable-header-content"));
-
-       /* for(WebElement a:header){
+        List<WebElement> header = driver.findElements(By.xpath("div.rt-resizable-header-content"));
+        /* for(WebElement a:header){
             System.out.print(a.getText()+" ");
         }*/
+        String sal = driver.findElement(By.xpath("//div[contains(text(),'Cierra')]/following-sibling::div[3]")).getText();
+        TakesScreenshot ts = (TakesScreenshot) driver;
+        File source = ts.getScreenshotAs(OutputType.FILE);
+        String ssPath = System.getProperty("user.dir") + "\\Reports\\" + "standalone" + ".png";
+        FileUtils.copyFile(source, new File(ssPath));
+        t.addScreenCaptureFromPath(ssPath);
+        t.fail("failing");
+        extent.flush();
 
-        String sal=driver.findElement(By.xpath("//div[contains(text(),'Cierra')]/following-sibling::div[3]")).getText();
+
 
 
 
@@ -57,7 +81,7 @@ public class statndaloneTest {
 
         Thread.sleep(1000);
         driver.findElement(By.cssSelector("[routerlink*='cart']")).click();*/
-       //boolean b=driver.findElement(By.cssSelector("cartSection h3")).isDisplayed();
+        //boolean b=driver.findElement(By.cssSelector("cartSection h3")).isDisplayed();
         //Assert.assertTrue(b);
         ////input[@placeholder='Select Country']
         //(//button[@class='btn btn-primary'])[4]
@@ -87,8 +111,6 @@ public class statndaloneTest {
 
         driver.findElement(By.cssSelector("[routerlink*='myorders']")).click();
         List<WebElement> orderedProducts=driver.findElements(By.cssSelector("tr td:nth-child(3)"));*/
-
-
 
 
     }

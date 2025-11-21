@@ -4,6 +4,8 @@ import PageObjects.LandingPage;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -48,6 +50,14 @@ public class Base {
         List<HashMap<String, String>> map = obj.readValue(jsonString, new TypeReference<List<HashMap<String, String>>>() {
         });
         return map;
+    }
+
+    public String getScreenShot(String TestCaseName) throws IOException {
+        TakesScreenshot ts=(TakesScreenshot)driver;
+        File source=ts.getScreenshotAs(OutputType.FILE);
+        String path=System.getProperty("user.dir")+"\\Reports\\"+TestCaseName+".png";
+        FileUtils.copyFile(source,new File(path));
+        return path;
     }
 
     @BeforeMethod(groups = "Purchase")
