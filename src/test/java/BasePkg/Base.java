@@ -10,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -23,13 +24,13 @@ import java.util.List;
 import java.util.Properties;
 
 public class Base {
-    public static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
-    WebDriver driver;
+    //public static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
+    public WebDriver driver;
     public LandingPage landingPage;
 
     public WebDriver initilizeDriver() throws IOException {
         Properties prop = new Properties();
-        FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + "//src//main//resources//GlobalData.properties");
+        FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + "//src//main//java//resources//GlobalData.properties");
         prop.load(fis);
         String browserName = prop.getProperty("browser");
         switch (browserName) {
@@ -52,7 +53,7 @@ public class Base {
         return map;
     }
 
-    public String getScreenShot(String TestCaseName) throws IOException {
+    public String getScreenShot(String TestCaseName,WebDriver driver) throws IOException {
         TakesScreenshot ts=(TakesScreenshot)driver;
         File source=ts.getScreenshotAs(OutputType.FILE);
         String path=System.getProperty("user.dir")+"\\Reports\\"+TestCaseName+".png";
@@ -71,4 +72,6 @@ public class Base {
     public void tearDown() {
         driver.quit();
     }
+
+
 }

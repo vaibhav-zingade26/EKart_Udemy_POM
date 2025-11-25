@@ -27,7 +27,7 @@ public class statndaloneTest {
     @BeforeTest
     public void config() {
         //extentreports extentsparkreports
-        String path = System.getProperty("user.dir") + "\\Reports\\index.html";
+            String path = System.getProperty("user.dir") + "\\Reports\\index.html";
         ExtentSparkReporter reporter = new ExtentSparkReporter(path);
         reporter.config().setDocumentTitle("Standalone Report");
         reporter.config().setReportName("StandAloneReport");
@@ -40,7 +40,7 @@ public class statndaloneTest {
     public void tc01() throws IOException {
         //extentreports extentsSpark
         ExtentTest t = extent.createTest("TC01");
-         WebDriver driver = new ChromeDriver();
+        WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         // driver.get("https://rahulshettyacademy.com/client");

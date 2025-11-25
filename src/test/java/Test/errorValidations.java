@@ -20,6 +20,7 @@ public class errorValidations extends Base {
         //id email id is wrong and pwd is correct "*Enter Valid Email" this string validate
         landingPage.loginApp("vaibhav26.com", "VacZ@1234");
         Assert.assertEquals("*Enter Valid Email", landingPage.emailWrongValidations());
+        Assert.assertTrue(false);
     }
 }
 
