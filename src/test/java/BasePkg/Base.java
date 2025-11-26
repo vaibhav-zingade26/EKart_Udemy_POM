@@ -61,14 +61,14 @@ public class Base {
         return path;
     }
 
-    @BeforeMethod(groups = "Purchase")
+    @BeforeMethod
     public void launchApplication() throws IOException {
         initilizeDriver();
         landingPage = new LandingPage(driver);
         landingPage.goTo();
     }
 
-    @AfterMethod(groups = "Purchase")
+    @AfterMethod
     public void tearDown() {
         driver.quit();
     }

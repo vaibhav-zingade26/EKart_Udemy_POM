@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary">EKART_UDEMY_POM</span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Nov 25, 2025 11:57:41 pm</span></a>
+<a href="#"><span class="badge badge-primary">Nov 26, 2025 11:37:01 pm</span></a>
 </li>
 </ul>
 </div>
@@ -45,6 +45,11 @@
 <li class="nav-item dropdown" onclick="toggleView('test-view')">
 <a id="nav-test" class="dropdown-toggle" href="#">
 <span class="ico"><i class="fa fa-list"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('exception-view')">
+<a id="nav-exception" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-bug"></i></span>
 </a>
 </li>
 <li class="nav-item dropdown" onclick="toggleView('dashboard-view')">
@@ -67,6 +72,7 @@
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
 <ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
 <a class="dropdown-item" status="pass" href="#"><span>Pass</span><span class="status success"></span></a>
+<a class="dropdown-item" status="fail" href="#"><span>Fail</span><span class="status danger"></span></a>
 <div class="dropdown-divider"></div>
 <a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
 </ul>
@@ -74,14 +80,154 @@
 </ul>
 </div>    <div class="test-list-wrapper scrollable">
       <ul class="test-list-item">
-        <li class="test-item"  status="pass" test-id="1"
+        <li class="test-item"  status="fail" test-id="1"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">TC02</p>
+            <p class="text-sm">
+              <span>11:37:05 pm</span> / <span>00:00:02:189</span>
+              <span class="badge fail-bg log float-right">Fail</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-fail">TC02</h5>
+<span class='badge badge-success'>11.26.2025 11:37:05 pm</span>
+<span class='badge badge-danger'>11.26.2025 11:37:07 pm</span>
+<span class='badge badge-default'>00:00:02:189</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div>    <div class="row mb-3"><div class="col-md-3">
+    
+
+<img data-featherlight='C:\Users\vacz2\OneDrive\Desktop\Selenium_Frameworks\EKart_Udemy_POM\Reports\TC02.png' src="C:\Users\vacz2\OneDrive\Desktop\Selenium_Frameworks\EKart_Udemy_POM\Reports\TC02.png">
+  
+    <div class="title">TC02</div>
+
+    </div></div>
+<div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log fail-bg">Fail</span></td>
+        <td>11:37:07 pm</td>
+        <td>
+          <textarea readonly class="code-block">java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertTrue(Assert.java:57)
+	at org.testng.Assert.assertTrue(Assert.java:67)
+	at Test.errorValidations.TC02(errorValidations.java:23)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:614)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:463)
+	at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
+	at java.base/java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:264)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java)
+	at --- Async.Stack.Trace --- (captured by IntelliJ IDEA debugger)
+	at java.base/java.util.concurrent.FutureTask.<init>(FutureTask.java:132)
+	at java.base/java.util.concurrent.AbstractExecutorService.newTaskFor(AbstractExecutorService.java:113)
+	at java.base/java.util.concurrent.AbstractExecutorService.invokeAll(AbstractExecutorService.java:274)
+	at org.testng.internal.thread.ThreadUtil.execute(ThreadUtil.java:70)
+	at org.testng.SuiteRunner.runInParallelTestMode(SuiteRunner.java:442)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:371)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:65)
+	at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)
+</textarea>
+          
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="fail" test-id="2"
           author=""
           tag=""
           device="">
           <div class="test-detail">
             <p class="name">TC01</p>
             <p class="text-sm">
-              <span>11:57:46 pm</span> / <span>00:00:00:000</span>
+              <span>11:37:05 pm</span> / <span>00:00:04:158</span>
+              <span class="badge fail-bg log float-right">Fail</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-fail">TC01</h5>
+<span class='badge badge-success'>11.26.2025 11:37:05 pm</span>
+<span class='badge badge-danger'>11.26.2025 11:37:09 pm</span>
+<span class='badge badge-default'>00:00:04:158</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=2</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log fail-bg">Fail</span></td>
+        <td>11:37:07 pm</td>
+        <td>
+          Test Failed: TC02
+        </td>
+      </tr>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:37:09 pm</td>
+        <td>
+          Test PassedTC01
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="3"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">TC01</p>
+            <p class="text-sm">
+              <span>11:37:09 pm</span> / <span>00:00:01:271</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -90,79 +236,39 @@
 <div class="p-v-10">
 <div class="info">
 <h5 class="test-status text-pass">TC01</h5>
-<span class='badge badge-success'>11.25.2025 11:57:46 pm</span>
-<span class='badge badge-danger'>11.25.2025 11:57:46 pm</span>
-<span class='badge badge-default'>00:00:00:000</span>
-&middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
-<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
-<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
-<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
-</div>
-</div>
-</div>          </div>
-        </li>
-        <li class="test-item"  status="pass" test-id="2"
-          author=""
-          tag=""
-          device="">
-          <div class="test-detail">
-            <p class="name">TC_03_UsingDataProvider</p>
-            <p class="text-sm">
-              <span>11:57:46 pm</span> / <span>00:00:00:000</span>
-              <span class="badge pass-bg log float-right">Pass</span>
-            </p>
-          </div>
-          <div class="test-contents d-none">
-<div class="detail-head">
-<div class="p-v-10">
-<div class="info">
-<h5 class="test-status text-pass">TC_03_UsingDataProvider</h5>
-<span class='badge badge-success'>11.25.2025 11:57:46 pm</span>
-<span class='badge badge-danger'>11.25.2025 11:57:46 pm</span>
-<span class='badge badge-default'>00:00:00:000</span>
-&middot; <span class='uri-anchor badge badge-default'>#test-id=2</span>
-<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
-<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
-<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
-</div>
-</div>
-</div>          </div>
-        </li>
-        <li class="test-item"  status="pass" test-id="3"
-          author=""
-          tag=""
-          device="">
-          <div class="test-detail">
-            <p class="name">TC_03_UsingDataProvider</p>
-            <p class="text-sm">
-              <span>11:57:46 pm</span> / <span>00:00:00:000</span>
-              <span class="badge pass-bg log float-right">Pass</span>
-            </p>
-          </div>
-          <div class="test-contents d-none">
-<div class="detail-head">
-<div class="p-v-10">
-<div class="info">
-<h5 class="test-status text-pass">TC_03_UsingDataProvider</h5>
-<span class='badge badge-success'>11.25.2025 11:57:46 pm</span>
-<span class='badge badge-danger'>11.25.2025 11:57:46 pm</span>
-<span class='badge badge-default'>00:00:00:000</span>
+<span class='badge badge-success'>11.26.2025 11:37:09 pm</span>
+<span class='badge badge-danger'>11.26.2025 11:37:10 pm</span>
+<span class='badge badge-default'>00:00:01:271</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=3</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
 <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
 </div>
 </div>
-</div>          </div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:37:10 pm</td>
+        <td>
+          Test PassedTC01
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
         </li>
         <li class="test-item"  status="pass" test-id="4"
           author=""
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">TC_04_UsingDataProvider_HasMap</p>
+            <p class="name">TC_03_UsingDataProvider</p>
             <p class="text-sm">
-              <span>11:57:47 pm</span> / <span>00:00:00:000</span>
+              <span>11:37:11 pm</span> / <span>00:00:04:219</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -170,26 +276,81 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">TC_04_UsingDataProvider_HasMap</h5>
-<span class='badge badge-success'>11.25.2025 11:57:47 pm</span>
-<span class='badge badge-danger'>11.25.2025 11:57:47 pm</span>
-<span class='badge badge-default'>00:00:00:000</span>
+<h5 class="test-status text-pass">TC_03_UsingDataProvider</h5>
+<span class='badge badge-success'>11.26.2025 11:37:11 pm</span>
+<span class='badge badge-danger'>11.26.2025 11:37:15 pm</span>
+<span class='badge badge-default'>00:00:04:219</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=4</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
 <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
 </div>
 </div>
-</div>          </div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:37:15 pm</td>
+        <td>
+          Test PassedTC_03_UsingDataProvider
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
         </li>
         <li class="test-item"  status="pass" test-id="5"
           author=""
           tag=""
           device="">
           <div class="test-detail">
+            <p class="name">TC_03_UsingDataProvider</p>
+            <p class="text-sm">
+              <span>11:37:17 pm</span> / <span>00:00:04:375</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_03_UsingDataProvider</h5>
+<span class='badge badge-success'>11.26.2025 11:37:17 pm</span>
+<span class='badge badge-danger'>11.26.2025 11:37:21 pm</span>
+<span class='badge badge-default'>00:00:04:375</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=5</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:37:21 pm</td>
+        <td>
+          Test PassedTC_03_UsingDataProvider
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="6"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
             <p class="name">TC_04_UsingDataProvider_HasMap</p>
             <p class="text-sm">
-              <span>11:57:47 pm</span> / <span>00:00:00:000</span>
+              <span>11:37:23 pm</span> / <span>00:00:02:909</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -198,25 +359,80 @@
 <div class="p-v-10">
 <div class="info">
 <h5 class="test-status text-pass">TC_04_UsingDataProvider_HasMap</h5>
-<span class='badge badge-success'>11.25.2025 11:57:47 pm</span>
-<span class='badge badge-danger'>11.25.2025 11:57:47 pm</span>
-<span class='badge badge-default'>00:00:00:000</span>
-&middot; <span class='uri-anchor badge badge-default'>#test-id=5</span>
+<span class='badge badge-success'>11.26.2025 11:37:23 pm</span>
+<span class='badge badge-danger'>11.26.2025 11:37:26 pm</span>
+<span class='badge badge-default'>00:00:02:909</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=6</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
 <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
 </div>
 </div>
-</div>          </div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:37:26 pm</td>
+        <td>
+          Test PassedTC_04_UsingDataProvider_HasMap
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
         </li>
-        <li class="test-item"  status="pass" test-id="6"
+        <li class="test-item"  status="pass" test-id="7"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">TC_04_UsingDataProvider_HasMap</p>
+            <p class="text-sm">
+              <span>11:37:28 pm</span> / <span>00:00:02:908</span>
+              <span class="badge pass-bg log float-right">Pass</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-pass">TC_04_UsingDataProvider_HasMap</h5>
+<span class='badge badge-success'>11.26.2025 11:37:28 pm</span>
+<span class='badge badge-danger'>11.26.2025 11:37:30 pm</span>
+<span class='badge badge-default'>00:00:02:908</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=7</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+</div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:37:30 pm</td>
+        <td>
+          Test PassedTC_04_UsingDataProvider_HasMap
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="pass" test-id="8"
           author=""
           tag=""
           device="">
           <div class="test-detail">
             <p class="name">TC02</p>
             <p class="text-sm">
-              <span>11:57:47 pm</span> / <span>00:00:00:000</span>
+              <span>11:37:32 pm</span> / <span>00:00:00:841</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -225,16 +441,30 @@
 <div class="p-v-10">
 <div class="info">
 <h5 class="test-status text-pass">TC02</h5>
-<span class='badge badge-success'>11.25.2025 11:57:47 pm</span>
-<span class='badge badge-danger'>11.25.2025 11:57:47 pm</span>
-<span class='badge badge-default'>00:00:00:000</span>
-&middot; <span class='uri-anchor badge badge-default'>#test-id=6</span>
+<span class='badge badge-success'>11.26.2025 11:37:32 pm</span>
+<span class='badge badge-danger'>11.26.2025 11:37:33 pm</span>
+<span class='badge badge-default'>00:00:00:841</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=8</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
 <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
 </div>
 </div>
-</div>          </div>
+</div><div class="detail-body mt-4">
+<table class="table table-sm">
+  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
+  <tbody>
+      <tr class="event-row">
+        <td><span class="badge log pass-bg">Pass</span></td>
+        <td>11:37:33 pm</td>
+        <td>
+          Test PassedTC02
+        </td>
+      </tr>
+  </tbody>
+</table>
+</div>
+          </div>
         </li>
       </ul>
     </div>
@@ -245,18 +475,67 @@
 </div>
 <div class="test-content-detail"><div class="detail-body"></div></div>
 </div></div>
-<div class="container-fluid p-4 view dashboard-view">
+<div class="test-wrapper row view exception-view attributes-view">
+<div class="test-list">
+<div class="test-list-tools">
+<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Exception</span></a></li></ul>
+<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">1</span></a></li></ul>
+</div>
+<div class="test-list-wrapper scrollable">
+<ul class="test-list-item">
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log badge-danger'>1</span>
+</span>
+<p class="name">java.lang.AssertionError</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>java.lang.AssertionError</h4>
+<span status="fail" class='badge log badge-danger'>1 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>23:37:05 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='1'>TC02</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="test-content scrollable">
+<div class="test-content-detail">
+<div class="detail-body"></div>
+</div>
+</div>
+</div><div class="container-fluid p-4 view dashboard-view">
 <div class="row">
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Nov 25, 2025 11:57:41 pm</h3>
+<h3>Nov 26, 2025 11:37:01 pm</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Nov 25, 2025 11:57:47 pm</h3>
+<h3>Nov 26, 2025 11:37:33 pm</h3>
 </div></div>
 </div>
 <div class="col-md-3">
@@ -268,7 +547,7 @@
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-fail">Tests Failed</p>
-<h3>0</h3>
+<h3>2</h3>
 </div></div>
 </div>
 </div>
@@ -284,13 +563,33 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'>
+<div><small data-tooltip='75%'>
 <b>6</b> tests passed
 </small>
 </div>
 <div>
-<small data-tooltip='0%'><b>0</b> tests failed,
+<small data-tooltip='25%'><b>2</b> tests failed,
 <b>0</b> skipped, <b data-tooltip='0%'>0</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Log events</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='events-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='77%'><b>7</b> events passed</small></div>
+<div>
+<small data-tooltip='22%'><b>2</b> events failed,
+<b data-tooltip='%'>0</b> others
 </small>
 </div>
 </div>
@@ -306,17 +605,31 @@
 </div></div>
 <script>
 var timeline = {
-"TC01":0,"TC_03_UsingDataProvider":0,"TC_03_UsingDataProvider":0,"TC_04_UsingDataProvider_HasMap":0,"TC_04_UsingDataProvider_HasMap":0,"TC02":0
+"TC02":2.189,"TC01":4.158,"TC01":1.271,"TC_03_UsingDataProvider":4.219,"TC_03_UsingDataProvider":4.375,"TC_04_UsingDataProvider_HasMap":2.909,"TC_04_UsingDataProvider_HasMap":2.908,"TC02":0.841
 };
 </script>
 <div class="row">
+<div class="col-lg-6 col-md-12 sysenv-container">
+<div class="card">
+<div class="card-header"><p>System/Environment</p></div>
+<div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
+<thead><tr class="bg-gray"><th>Name</th><th>Value</th></tr></thead>
+<tbody>
+<tr>
+<td>SDET</td>
+<td>Vaibhav Zinagde</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
 </div>
 </div>
 <script>
 var statusGroup = {
 parentCount: 5,
 passParent: 6,
-failParent: 0,
+failParent: 2,
 warningParent: 0,
 skipParent: 0,
 childCount: 5,
@@ -332,8 +645,8 @@ warningGrandChild: 0,
 skipGrandChild: 0,
 infoGrandChild: 0,
 eventsCount: 5,
-passEvents: 0,
-failEvents: 0,
+passEvents: 7,
+failEvents: 2,
 warningEvents: 0,
 skipEvents: 0,
 infoEvents: 0

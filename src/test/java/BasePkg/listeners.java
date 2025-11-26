@@ -17,10 +17,12 @@ public class listeners extends Base implements ITestListener {
 
     ExtentReports extent= extentReportsClass.extentReport();
     ExtentTest test;
+    ThreadLocal<ExtentTest> extentThread = new ThreadLocal<ExtentTest>();
     @Override
     public void onTestStart(ITestResult result) {
         Reporter.log("TEST STARTED → " + result.getName(), true);
        test= extent.createTest(result.getMethod().getMethodName());
+       extentThread.set(test);
 
     }
 
@@ -28,7 +30,7 @@ public class listeners extends Base implements ITestListener {
     @Override
     public void onTestSuccess(ITestResult result) {
         Reporter.log("TEST PASSED → " + result.getName(), true);
-        test.log(Status.PASS,"Test Passed"+result.getName());
+        extentThread.get().log(Status.PASS,"Test Passed"+result.getName());
     }
 
 
@@ -36,23 +38,19 @@ public class listeners extends Base implements ITestListener {
     public void onTestFailure(ITestResult result) {
         Reporter.log("TEST FAILED → " + result.getName(), true);
         test.log(Status.FAIL,"Test Failed: " + result.getName());
-        test.fail(result.getThrowable());
+        extentThread.get().fail(result.getThrowable());
 
         try {
             driver = (WebDriver) result.getInstance()
                     .getClass()
                     .getField("driver")
                     .get(result.getInstance());
+            String screenshotPath = getScreenShot(result.getName(), driver);
+            extentThread.get().addScreenCaptureFromPath(screenshotPath, result.getMethod().getMethodName());
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        try {
-            String screenshotPath = getScreenShot(result.getName(), driver);
-            test.addScreenCaptureFromPath(screenshotPath, result.getMethod().getMethodName());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
 
