@@ -1,12 +1,12 @@
 package PageObjects;
 
-import Utilities.abstractCommanMethod;
+import Utilities.Base;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LandingPage extends abstractCommanMethod {
+public class LandingPage extends Base {
     WebDriver driver;
 
     public LandingPage( WebDriver driver){
@@ -35,12 +35,12 @@ public class LandingPage extends abstractCommanMethod {
     @FindBy(xpath="//div[contains(text(), 'Email')]")
     WebElement errForEmail;
 
-    public dashboardPage loginApp(String emailId, String Password) throws InterruptedException {
+    public DashboardPage loginApp(String emailId, String Password) throws InterruptedException {
         email.sendKeys(emailId);
         pwd.sendKeys(Password);
         login.click();
         zoomOutWebPage();
-        dashboardPage dashboardPage = new dashboardPage(driver);
+        DashboardPage dashboardPage = new DashboardPage(driver);
         return dashboardPage;
 
     }

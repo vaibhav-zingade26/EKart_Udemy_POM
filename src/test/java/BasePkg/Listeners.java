@@ -1,21 +1,18 @@
 package BasePkg;
 
-
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
-import extentReports.extentReportsClass;
+import extentReports.ExtentReportsClass;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 import org.testng.Reporter;
 
-import java.io.IOException;
+public class Listeners extends BaseTest implements ITestListener {
 
-public class listeners extends Base implements ITestListener {
-
-    ExtentReports extent= extentReportsClass.extentReport();
+    ExtentReports extent= ExtentReportsClass.extentReport();
     ExtentTest test;
     ThreadLocal<ExtentTest> extentThread = new ThreadLocal<ExtentTest>();
     @Override

@@ -1,6 +1,6 @@
 package Test;
 
-import BasePkg.Base;
+import BasePkg.BaseTest;
 import PageObjects.*;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
@@ -8,11 +8,9 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 
-public class submitOrder extends Base {
+public class SubmitOrder extends BaseTest {
     String productName="ADIDAS ORIGINAL";
     String countryName="India";
 
@@ -20,7 +18,7 @@ public class submitOrder extends Base {
     public void TC01() throws InterruptedException, IOException {
         //submt the order
         //LandingPage landingPage=launchApplication();
-        dashboardPage dashboardPage=landingPage.loginApp("vaibhav26@gmail.com","VacZ@1234");
+        DashboardPage dashboardPage=landingPage.loginApp("vaibhav26@gmail.com","VacZ@1234");
         dashboardPage.addProductToCart(productName);
         CartPage cartPage=dashboardPage.goToCart();
         PlaceOrder placeOrder=cartPage.checkOut();
@@ -31,14 +29,14 @@ public class submitOrder extends Base {
     @Test(dependsOnMethods = {"TC01"})
     public void TC02() throws IOException, InterruptedException {
         //In orders page verify submitted order
-        dashboardPage dashboardPage=landingPage.loginApp("vaibhav26@gmail.com","VacZ@1234");
+        DashboardPage dashboardPage=landingPage.loginApp("vaibhav26@gmail.com","VacZ@1234");
         OrderPage orderPage =dashboardPage.goToOrders();
         Assert.assertTrue(orderPage.validateProductOrdered(productName));
     }
 
     @Test (dataProvider="getData")
     public void TC_03_UsingDataProvider(String email,String pwd,String product) throws IOException, InterruptedException {
-        dashboardPage dashboardPage=landingPage.loginApp(email,pwd);
+        DashboardPage dashboardPage=landingPage.loginApp(email,pwd);
         dashboardPage.addProductToCart(product);
         CartPage cartPage=dashboardPage.goToCart();
         PlaceOrder placeOrder=cartPage.checkOut();
@@ -48,7 +46,7 @@ public class submitOrder extends Base {
 
     @Test (dataProvider="getDataUsingMap" , groups = "Purchase")
     public void TC_04_UsingDataProvider_HasMap(HashMap<String,String>input) throws IOException, InterruptedException {
-        dashboardPage dashboardPage=landingPage.loginApp(input.get("email"),input.get("pwd"));
+        DashboardPage dashboardPage=landingPage.loginApp(input.get("email"),input.get("pwd"));
         dashboardPage.addProductToCart(input.get("product"));
         CartPage cartPage=dashboardPage.goToCart();
         PlaceOrder placeOrder=cartPage.checkOut();

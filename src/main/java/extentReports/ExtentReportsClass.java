@@ -1,10 +1,9 @@
 package extentReports;
 
 import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.reporter.ExtentReporter;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
-public class extentReportsClass {
+public class ExtentReportsClass {
     ExtentReports extent;
 
     public static ExtentReports extentReport() {

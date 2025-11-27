@@ -2,20 +2,20 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite" parallel="tests" thread-count="2" >
     <listeners>
-        <listener class-name="BasePkg.listeners"></listener>
+        <listener class-name="BasePkg.Listeners"></listener>
     </listeners>
 
     <test verbose="2"
           name="C:/Users/vacz2/OneDrive/Desktop/Selenium_Frameworks/EKart_Udemy_POM/src/test/java/Test/submitOrder.java">
         <classes>
-            <class name="Test.submitOrder">
+            <class name="Test.SubmitOrder">
             </class>
         </classes>
     </test>
     <test verbose="2"
           name="C:/Users/vacz2/OneDrive/Desktop/Selenium_Frameworks/EKart_Udemy_POM/src/test/java/Test/errorValidations.java">
         <classes>
-            <class name="Test.errorValidations">
+            <class name="Test.ErrorValidations">
             </class>
         </classes>
     </test>

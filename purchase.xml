@@ -9,7 +9,7 @@
     <test verbose="2" preserve-order="true"
           name="C:/Users/vacz2/OneDrive/Desktop/Selenium_Frameworks/EKart_Udemy_POM/src/test/java/Test/submitOrder.java">
         <classes>
-            <class name="Test.submitOrder">
+            <class name="Test.SubmitOrder">
             </class>
         </classes>
     </test>

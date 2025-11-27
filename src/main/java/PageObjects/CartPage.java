@@ -1,12 +1,12 @@
 package PageObjects;
 
-import Utilities.abstractCommanMethod;
+import Utilities.Base;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class CartPage extends abstractCommanMethod {
+public class CartPage extends Base {
     WebDriver driver;
 
     public CartPage(WebDriver driver) {

@@ -13,9 +13,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class abstractCommanMethod {
+public class Base {
     WebDriver driver;
-    public abstractCommanMethod(WebDriver driver){
+    public Base(WebDriver driver){
         this.driver=driver;
         PageFactory.initElements(driver,this);
     }

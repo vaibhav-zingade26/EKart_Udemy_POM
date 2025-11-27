@@ -1,13 +1,12 @@
 package Test;
 
-import BasePkg.Base;
-import PageObjects.LandingPage;
+import BasePkg.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-public class errorValidations extends Base {
+public class ErrorValidations extends BaseTest {
 
     @Test(priority = 2)
     public void TC01() throws InterruptedException, IOException {
