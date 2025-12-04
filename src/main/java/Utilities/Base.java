@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
 public class Base {
     WebDriver driver;
@@ -33,6 +34,15 @@ public class Base {
         //System.out.println("Zooming out to 50%");
         jse.executeScript("document.body.style.zoom='70%'");
         Thread.sleep(100);
+    }
+
+    public void clickAllElements(List<WebElement> ls){
+        List<WebElement> a=ls;
+        for(WebElement b:a){
+            b.click();
+        }
+
+
     }
 
     public void explicitWait(By locator){

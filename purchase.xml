@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite" parallel="methods" thread-count="3">
-    <groups>
+<suite name="All Test Suite"  thread-count="3">
+   <!-- <groups>
         <run>
-            <include name="Purchase"/>
+            <exclude name="Purchase"/>
         </run>
-    </groups>
+    </groups>-->
     <test verbose="2" preserve-order="true"
           name="C:/Users/vacz2/OneDrive/Desktop/Selenium_Frameworks/EKart_Udemy_POM/src/test/java/Test/submitOrder.java">
         <classes>

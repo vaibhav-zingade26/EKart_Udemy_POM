@@ -10,6 +10,7 @@ import org.testng.annotations.Test;
 import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -112,6 +113,17 @@ public class statndaloneTest {
         driver.findElement(By.cssSelector("[routerlink*='myorders']")).click();
         List<WebElement> orderedProducts=driver.findElements(By.cssSelector("tr td:nth-child(3)"));*/
 
+
+    }
+
+    @Test
+    public void dd(){
+
+        ArrayList<String > p= new ArrayList<>();
+        p.add("Abhay");
+        p.add("add");
+        System.out.println(p.contains("add"));
+        System.out.println(p.contains("Abhay"));
 
     }
 }

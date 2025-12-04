@@ -12,29 +12,29 @@ import org.testng.Reporter;
 
 public class Listeners extends BaseTest implements ITestListener {
 
-    ExtentReports extent= ExtentReportsClass.extentReport();
+    ExtentReports extent = ExtentReportsClass.extentReport();
     ExtentTest test;
     ThreadLocal<ExtentTest> extentThread = new ThreadLocal<ExtentTest>();
+
     @Override
     public void onTestStart(ITestResult result) {
         Reporter.log("TEST STARTED → " + result.getName(), true);
-       test= extent.createTest(result.getMethod().getMethodName());
-       extentThread.set(test);
-
+        test = extent.createTest(result.getMethod().getMethodName());
+        extentThread.set(test);
     }
 
 
     @Override
     public void onTestSuccess(ITestResult result) {
         Reporter.log("TEST PASSED → " + result.getName(), true);
-        extentThread.get().log(Status.PASS,"Test Passed"+result.getName());
+        extentThread.get().log(Status.PASS, "Test Passed" + result.getName());
     }
 
 
     @Override
     public void onTestFailure(ITestResult result) {
         Reporter.log("TEST FAILED → " + result.getName(), true);
-        test.log(Status.FAIL,"Test Failed: " + result.getName());
+        test.log(Status.FAIL, "Test Failed: " + result.getName());
         extentThread.get().fail(result.getThrowable());
 
         try {

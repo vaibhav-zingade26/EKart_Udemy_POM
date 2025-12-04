@@ -31,7 +31,7 @@ public class BaseTest {
         Properties prop = new Properties();
         FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + "//src//main//java//resources//GlobalData.properties");
         prop.load(fis);
-        String browserName = prop.getProperty("browser");
+        String browserName = System.getProperty("browser")!=null ? System.getProperty("browser"):prop.getProperty("browser");
         switch (browserName) {
             case "chrome" -> driver = new ChromeDriver();
             case "firefox" -> driver = new FirefoxDriver();
@@ -69,7 +69,7 @@ public class BaseTest {
 
     @AfterMethod
     public void tearDown() {
-        driver.quit();
+        //driver.quit();
     }
 
 

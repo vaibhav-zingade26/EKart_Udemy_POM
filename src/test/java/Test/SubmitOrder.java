@@ -12,6 +12,8 @@ import java.util.List;
 
 public class SubmitOrder extends BaseTest {
     String productName="ADIDAS ORIGINAL";
+    String productName1="ZARA COAT 3";
+
     String countryName="India";
 
     @Test(groups = "Purchase")
@@ -73,6 +75,25 @@ public class SubmitOrder extends BaseTest {
         List<HashMap<String,String>>data=getJsonIntoHashMap(System.getProperty("user.dir")+"//src//main//java//data//data.json");
 
         return new Object[][] { {data.get(0)},{data.get(1)} };
+    }
+
+    @Test
+    public void TC_verify_if_Product_is_Empty() throws InterruptedException {
+        DashboardPage dashboardPage=landingPage.loginApp("vaibhav26@gmail.com","VacZ@1234");
+        Thread.sleep(2000);
+        dashboardPage.search();
+       // String msg= dashboardPage.errorMsg();
+
+    }
+    @Test
+    public void TC_Verify_Card_Is_Emptied() throws InterruptedException {
+        DashboardPage dashboardPage=landingPage.loginApp("vaibhav26@gmail.com","VacZ@1234");
+        dashboardPage.addProductToCart(productName);
+        dashboardPage.addProductToCart(productName1);
+        CartPage cartPage=dashboardPage.goToCart();
+        Assert.assertTrue(cartPage.verifyAddedProd(productName,productName1));
+        cartPage.deleteAddedProd();
+        Assert.assertEquals(cartPage.deleteAddedProd(),"No Products in Your Cart !");
     }
 
 

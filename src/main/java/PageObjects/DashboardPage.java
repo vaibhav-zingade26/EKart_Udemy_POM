@@ -2,6 +2,7 @@ package PageObjects;
 
 import Utilities.Base;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -40,7 +41,25 @@ public class DashboardPage extends Base {
 
     public void addProductToCart(String productName){
         WebElement desiredProd=getProductByName(productName);
+        explicitWait(addToCart);
         desiredProd.findElement(addToCart).click();
+    }
+
+    public void addProductToCart(String productName,String productName1) throws InterruptedException {
+        WebElement desiredProd=getProductByName(productName);
+        desiredProd.findElement(addToCart).click();
+        Thread.sleep(2000);
+        WebElement desiredProd2=getProductByName(productName1);
+        desiredProd.findElement(addToCart).click();
+    }
+
+    public void search(){
+        driver.findElement(By.xpath("//div[@class='py-2 border-bottom ml-3']//input[@formcontrolname='productName']")).sendKeys("2"+ Keys.ENTER);
+    }
+
+    public String errorMsg(){
+       // explicitWait(By.xpath("div[aria-label='No Products Found']"));
+        return driver.findElement(By.xpath("div[aria-label='No Products Found']")).getText();
     }
 
 }
