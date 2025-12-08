@@ -12,6 +12,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -69,7 +70,31 @@ public class BaseTest {
 
     @AfterMethod
     public void tearDown() {
-        //driver.quit();
+        driver.close();
+    }
+
+    @DataProvider
+    public Object[][] getData(){
+        return new Object[][] { {"vaibhav26@gmail.com","VacZ@1234","ADIDAS ORIGINAL"},{"VacZ@9464.com","VacZ@9464","ZARA COAT 3"} };
+    }
+
+    @DataProvider
+    public Object[][] getDataUsingMap() throws IOException {
+        /*HashMap<String,String >map1=new HashMap<>();
+        map1.put("email","vaibhav26@gmail.com");
+        map1.put("pwd","VacZ@1234");
+        map1.put("product","ADIDAS ORIGINAL");
+
+        HashMap<String,String >map2=new HashMap<>();
+        map2.put("email","VacZ@9464.com");
+        map2.put("pwd","VacZ@9464");
+        map2.put("product","ZARA COAT 3");*/
+        List<HashMap<String,String>>data=getJsonIntoHashMap(System.getProperty("user.dir")+"//src//main//java//data//data.json");
+        return new Object[][] { {data.get(0)},{data.get(1)} };
+    }
+
+    public String getCurrentURL(){
+        return driver.getCurrentUrl();
     }
 
 

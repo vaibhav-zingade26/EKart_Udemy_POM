@@ -5,7 +5,6 @@ import PageObjects.*;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
@@ -13,11 +12,10 @@ import java.util.List;
 public class SubmitOrder extends BaseTest {
     String productName="ADIDAS ORIGINAL";
     String productName1="ZARA COAT 3";
-
     String countryName="India";
 
     @Test(groups = "Purchase")
-    public void TC01() throws InterruptedException, IOException {
+    public void TC01_Basic_Add_Product() throws InterruptedException, IOException {
         //submt the order
         //LandingPage landingPage=launchApplication();
         DashboardPage dashboardPage=landingPage.loginApp("vaibhav26@gmail.com","VacZ@1234");
@@ -29,7 +27,7 @@ public class SubmitOrder extends BaseTest {
     }
 
     @Test(dependsOnMethods = {"TC01"})
-    public void TC02() throws IOException, InterruptedException {
+    public void TC02_Validate_Product() throws IOException, InterruptedException {
         //In orders page verify submitted order
         DashboardPage dashboardPage=landingPage.loginApp("vaibhav26@gmail.com","VacZ@1234");
         OrderPage orderPage =dashboardPage.goToOrders();
@@ -56,35 +54,6 @@ public class SubmitOrder extends BaseTest {
         Assert.assertEquals(confirmMsg,"THANKYOU FOR THE ORDER.");
     }
 
-    @DataProvider
-    public Object[][] getData(){
-       return new Object[][] { {"vaibhav26@gmail.com","VacZ@1234","ADIDAS ORIGINAL"},{"VacZ@9464.com","VacZ@9464","ZARA COAT 3"} };
-    }
-
-    @DataProvider
-    public Object[][] getDataUsingMap() throws IOException {
-        /*HashMap<String,String >map1=new HashMap<>();
-        map1.put("email","vaibhav26@gmail.com");
-        map1.put("pwd","VacZ@1234");
-        map1.put("product","ADIDAS ORIGINAL");
-
-        HashMap<String,String >map2=new HashMap<>();
-        map2.put("email","VacZ@9464.com");
-        map2.put("pwd","VacZ@9464");
-        map2.put("product","ZARA COAT 3");*/
-        List<HashMap<String,String>>data=getJsonIntoHashMap(System.getProperty("user.dir")+"//src//main//java//data//data.json");
-
-        return new Object[][] { {data.get(0)},{data.get(1)} };
-    }
-
-    @Test
-    public void TC_verify_if_Product_is_Empty() throws InterruptedException {
-        DashboardPage dashboardPage=landingPage.loginApp("vaibhav26@gmail.com","VacZ@1234");
-        Thread.sleep(2000);
-        dashboardPage.search();
-       // String msg= dashboardPage.errorMsg();
-
-    }
     @Test
     public void TC_Verify_Card_Is_Emptied() throws InterruptedException {
         DashboardPage dashboardPage=landingPage.loginApp("vaibhav26@gmail.com","VacZ@1234");

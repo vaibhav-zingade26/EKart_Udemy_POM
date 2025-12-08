@@ -26,6 +26,9 @@ public class LandingPage extends Base {
     @FindBy(id="login")
     WebElement login;
 
+    @FindBy(xpath = "//button[contains(text(),' Sign Out ')]")
+    WebElement logOut;
+
     //div[aria-label='Incorrect email or password.']
     //document.querySelector(".ng-tns-c4-8.ng-star-inserted.ng-trigger.ng-trigger-flyInOut.ngx-toastr.toast-error")
 
@@ -43,6 +46,10 @@ public class LandingPage extends Base {
         DashboardPage dashboardPage = new DashboardPage(driver);
         return dashboardPage;
 
+    }
+
+    public void logOutApp(){
+        logOut.click();
     }
     public void goTo(){
         driver.get("https://rahulshettyacademy.com/client");

@@ -21,5 +21,17 @@ public class ErrorValidations extends BaseTest {
         Assert.assertEquals("*Enter Valid Email", landingPage.emailWrongValidations());
         Assert.assertTrue(false);
     }
+
+    @Test
+    public void TC_login_logOut_MultipleTimes() throws InterruptedException {
+
+        for (int i = 0; i < 4; i++) {
+            landingPage.loginApp("vaibhav26@gmail.com", "VacZ@1234");
+            Assert.assertEquals(getCurrentURL(), "https://rahulshettyacademy.com/client/#/dashboard/dash");
+            landingPage.logOutApp();
+            Assert.assertEquals(getCurrentURL(), "https://rahulshettyacademy.com/client/#/auth/login");
+            System.out.println("Iteration: " + i);
+        }
+    }
 }
 
