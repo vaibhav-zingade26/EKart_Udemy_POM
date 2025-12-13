@@ -30,7 +30,6 @@ public class ErrorValidations extends BaseTest {
             Assert.assertEquals(getCurrentURL(), "https://rahulshettyacademy.com/client/#/dashboard/dash");
             landingPage.logOutApp();
             Assert.assertEquals(getCurrentURL(), "https://rahulshettyacademy.com/client/#/auth/login");
-            System.out.println("Iteration: " + i);
         }
     }
 }
