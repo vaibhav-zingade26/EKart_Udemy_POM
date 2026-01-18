@@ -83,7 +83,7 @@ public class StepDefinationsImpl extends BaseTest {
     }
 
     @When("User clicked on orders")
-    public void User_clicked_on_orders() {
+    public void user_clicked_on_orders() {
         //click on order
         System.out.println("I ma in method");
         orderPage.goToOrders();
@@ -92,7 +92,7 @@ public class StepDefinationsImpl extends BaseTest {
     }
 
     @Then("User should land on orders page")
-    public void User_should_land_on_orders_page() {
+    public void user_should_land_on_orders_page() {
         //verify order page by title
         String orderUrl=driver.getCurrentUrl();
         Assert.assertEquals(orderUrl,orderPageUrl);
