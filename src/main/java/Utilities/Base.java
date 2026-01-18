@@ -51,7 +51,7 @@ public class Base {
     }
 
     public void explicitWait(WebElement ele){
-        WebDriverWait w= new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait w= new WebDriverWait(driver, Duration.ofSeconds(20));
         w.until(ExpectedConditions.visibilityOf(ele));
     }
 

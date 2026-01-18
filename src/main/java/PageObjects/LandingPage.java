@@ -14,7 +14,6 @@ public class LandingPage extends Base {
         this.driver= driver;
         PageFactory.initElements(driver,this);
     }
-
     //WebElement email=driver.findElement(By.id("userEmail"));
 
     @FindBy(id="userEmail")

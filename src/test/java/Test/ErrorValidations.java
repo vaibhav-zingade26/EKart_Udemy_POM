@@ -22,7 +22,7 @@ public class ErrorValidations extends BaseTest {
         Assert.assertTrue(false);
     }
 
-    @Test
+    @Test(priority = 3)
     public void TC_login_logOut_MultipleTimes() throws InterruptedException {
 
         for (int i = 0; i < 4; i++) {

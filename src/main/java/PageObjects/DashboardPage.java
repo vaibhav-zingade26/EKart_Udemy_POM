@@ -39,7 +39,8 @@ public class DashboardPage extends Base {
 
     }
 
-    public void addProductToCart(String productName){
+    public void addProductToCart(String productName) throws InterruptedException {
+        zoomOutWebPage();
         WebElement desiredProd=getProductByName(productName);
         explicitWait(addToCart);
         desiredProd.findElement(addToCart).click();

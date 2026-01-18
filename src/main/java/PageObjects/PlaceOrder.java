@@ -27,7 +27,7 @@ public class PlaceOrder extends Base {
     @FindBy(css=".hero-primary")
     WebElement msg;
 
-    public String verifySucessMsg(String CountryName){
+    public String verifySucessMsg(String CountryName) {
         enterCountry.sendKeys(CountryName);
         explicitWait(listOfCountries);
         Country.click();

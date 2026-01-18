@@ -1,4 +1,4 @@
-Feature: Purchase the order from Ecommerce webside.
+Feature: Smoke Testing
 
   Background:
     Given Land on Ecommerce webside
@@ -8,9 +8,17 @@ Feature: Purchase the order from Ecommerce webside.
     Given Logged in with username <username> and password <password>
     When user added the product <product>
     And  checkout the order
-    Then "THANKYOU FOR THE ORDER." messsage should displayed on confirmationPage.
+    Then "THANKYOU FOR THE ORDER." message should be displayed on confirmationPage.
     Examples:
       | username            | password  | product         |
       | vaibhav26@gmail.com | VacZ@1234 | ADIDAS ORIGINAL |
       | VacZ@9464.com       | VacZ@9464 | ZARA COAT 3     |
+
+    Scenario Outline:User able to go on orders and Cart page
+      Given Logged in with username <username> and password <password>
+      When User clicked on orders
+      Then User should land on orders page
+      Examples:
+        | username            | password  |
+        | vaibhav26@gmail.com | VacZ@1234 |
 

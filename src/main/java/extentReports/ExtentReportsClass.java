@@ -15,8 +15,6 @@ public class ExtentReportsClass {
     ExtentReports extent= new ExtentReports();
     extent.attachReporter(UI);
     extent.setSystemInfo("SDET","Vaibhav Zinagde");
-
-
     return extent;
 
 }

@@ -6,9 +6,9 @@ Feature:
   @NegativeTests
   Scenario Outline: Negative test for login
     Given Logged in with username <username> and password <password>
-    Then "Incorrect email or password." messsage should displayed on login Page.
+    Then message <msg> should displayed on login Page
     Examples:
-      | username            | password |
-      | vaibhav26@gmail.com | frgferge |
-      | vaibhav26@gmail.com | f4f4fr   |
+      | username            | password | msg |
+      | vaibhav26@gmail.com | frgferge |Incorrect email or password.|
+      | vaibhav26@gmail.com | f4f4fr   |Incorrect email or password.|
 
