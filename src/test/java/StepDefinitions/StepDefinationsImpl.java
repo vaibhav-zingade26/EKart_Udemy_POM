@@ -1,4 +1,4 @@
-package StepDefinations;
+package StepDefinitions;
 
 import BasePkg.BaseTest;
 import PageObjects.*;
@@ -9,7 +9,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.qameta.allure.Epic;
-import io.qameta.allure.Feature;
+import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.testng.Assert;
@@ -21,9 +21,10 @@ public class StepDefinationsImpl extends BaseTest {
     DashboardPage dashboardPage;
     CartPage cartPage;
     PlaceOrder placeOrder;
-    OrderPage orderPage;
     String countryName="India";
     String orderPageUrl="https://rahulshettyacademy.com/client/#/dashboard/myorders";
+    String cartPageUrl="https://rahulshettyacademy.com/client/#/dashboard/cart";
+    String price;
 
 
     @Given("Land on Ecommerce webside")
@@ -77,24 +78,49 @@ public class StepDefinationsImpl extends BaseTest {
 
     @Then("{string} message should be displayed on confirmationPage.")
     public void messageShouldBeDisplayedOnConfirmationPage(String string) {
-        System.out.println("I ma in method");
         String actualMsg = placeOrder.verifySucessMsg(countryName);
         Assert.assertEquals(actualMsg, string);
     }
 
+
     @When("User clicked on orders")
     public void user_clicked_on_orders() {
-        //click on order
-        System.out.println("I ma in method");
+        OrderPage orderPage= new OrderPage(driver);
         orderPage.goToOrders();
 
+    }
+    @Then("User should land on orders page")
+    public void user_should_land_on_orders_page() {
+      Assert.assertEquals(getCurrentURL(),orderPageUrl);
 
     }
 
-    @Then("User should land on orders page")
-    public void user_should_land_on_orders_page() {
-        //verify order page by title
-        String orderUrl=driver.getCurrentUrl();
-        Assert.assertEquals(orderUrl,orderPageUrl);
+    @And("User came back on and dashboard click on cart")
+    public void userCameBackOnAndDashboardClickOnCart() throws InterruptedException {
+        driver.navigate().back();
+        CartPage cart= new CartPage(driver);
+        cart.goToCart();
+    }
+
+    @Then("User should land on Cart page")
+    public void userShouldLandOnCartPage() {
+        Assert.assertEquals(getCurrentURL(),cartPageUrl);
+    }
+
+    @And("^fetch the price of (.+)$")
+    public void fetchThePriceOfProduct(String product) {
+        price=dashboardPage.priceOfProduct(product);
+        System.out.println("price of the "+product+": "+price);
+
+    }
+
+    @When("^click on view of (.+)$")
+    public void clickOnViewOfProduct(String product) {
+       dashboardPage.clickOnView(product);
+    }
+
+    @Then("^Verify (.+) name and price value$")
+    public void verifyProductNameAndPriceValue(String pro) {
+     dashboardPage.verifyProductAndPrice(pro,price);
     }
 }

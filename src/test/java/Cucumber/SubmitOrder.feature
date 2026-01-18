@@ -14,11 +14,26 @@ Feature: Smoke Testing
       | vaibhav26@gmail.com | VacZ@1234 | ADIDAS ORIGINAL |
       | VacZ@9464.com       | VacZ@9464 | ZARA COAT 3     |
 
+
     Scenario Outline:User able to go on orders and Cart page
       Given Logged in with username <username> and password <password>
       When User clicked on orders
       Then User should land on orders page
+      And User came back on and dashboard click on cart
+      Then User should land on Cart page
       Examples:
         | username            | password  |
         | vaibhav26@gmail.com | VacZ@1234 |
+
+  @Today
+    Scenario Outline:
+    Given Logged in with username <username> and password <password>
+    And fetch the price of <product>
+    When click on view of <product>
+    Then Verify <product> name and price value
+    Examples:
+      | username            | password  | product|
+      | vaibhav26@gmail.com | VacZ@1234 |iphone 13 pro|
+
+
 

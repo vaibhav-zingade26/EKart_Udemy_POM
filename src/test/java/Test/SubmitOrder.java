@@ -13,6 +13,9 @@ public class SubmitOrder extends BaseTest {
     String productName="ADIDAS ORIGINAL";
     String productName1="ZARA COAT 3";
     String countryName="India";
+    String orderPageUrl="https://rahulshettyacademy.com/client/#/dashboard/myorders";
+    String cartPageUrl="https://rahulshettyacademy.com/client/#/dashboard/cart";
+
 
     @Test(groups = "Purchase")
     public void TC01_Basic_Add_Product() throws InterruptedException, IOException {
@@ -65,6 +68,17 @@ public class SubmitOrder extends BaseTest {
         Assert.assertEquals(cartPage.deleteAddedProd(),"No Products in Your Cart !");
     }
 
+    @Test
+    public void TC_User_should_able_to_navigate_order_cartPage() throws InterruptedException {
+        landingPage.loginApp("vaibhav26@gmail.com","VacZ@1234");
+        OrderPage orderPage = new OrderPage(driver);
+        orderPage.goToOrders();
+        Assert.assertEquals(getCurrentURL(),orderPageUrl);
+        driver.navigate().back();
+        CartPage cart= new CartPage(driver);
+        cart.goToCart();
+        Assert.assertEquals(getCurrentURL(),cartPageUrl);
+    }
 
 
 

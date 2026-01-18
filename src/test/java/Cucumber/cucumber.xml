@@ -1,72 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="29.912" tests="4" skipped="0" failures="1" errors="0">
-<testcase classname="" name="Negative test for login - Example #1.1" time="9.784">
-<system-out><![CDATA[
-Given Land on Ecommerce webside.............................................passed
-Given Logged in with username vaibhav26@gmail.com and password frgferge.....passed
-Then message Incorrect email or password. should displayed on login Page....passed
-]]></system-out>
-</testcase>
-<testcase classname="" name="Negative test for login - Example #1.2" time="4.938">
-<system-out><![CDATA[
-Given Land on Ecommerce webside.............................................passed
-Given Logged in with username vaibhav26@gmail.com and password f4f4fr.......passed
-Then message Incorrect email or password. should displayed on login Page....passed
-]]></system-out>
-</testcase>
-<testcase classname="Purchase the order from Ecommerce webside." name="Positive test on submitting order - Example #1.1" time="8.049">
+<testsuite name="Cucumber" time="9.083" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="Smoke Testing" name=" - Example #1.1" time="8.48">
 <system-out><![CDATA[
 Given Land on Ecommerce webside.............................................passed
 Given Logged in with username vaibhav26@gmail.com and password VacZ@1234....passed
-When user added the product ADIDAS ORIGINAL.................................passed
-And checkout the order......................................................passed
-Then "THANKYOU FOR THE ORDER." message should be displayed on confirmationPage..passed
-]]></system-out>
-</testcase>
-<testcase classname="Purchase the order from Ecommerce webside." name="Positive test on submitting order - Example #1.2" time="6.653">
-<failure type="org.openqa.selenium.ElementClickInterceptedException" message="element click intercepted: Element is not clickable at point (760, 550)
-  (Session info: chrome=143.0.7499.169)
-Build info: version: '4.37.0', revision: '3c1da1e342'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.7'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [f8ba0c48b935344517c9eff9a2349b17, clickElement {id=f.EC54FACB7E2C79BEDD71DB0C35A967E4.d.9061B15DA4E64CE59AE472E3278B9BDF.e.202}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.169, chrome: {chromedriverVersion: 143.0.7499.192 (be2c1f4fd45..., userDataDir: C:\Users\vacz2\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58902}, goog:processID: 3260, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58902/devtoo..., se:cdpVersion: 143.0.7499.169, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[[[ChromeDriver: chrome on windows (f8ba0c48b935344517c9eff9a2349b17)] -&gt; css selector: .card-body]] -&gt; css selector: .card-body button:last-of-type]
-Session ID: f8ba0c48b935344517c9eff9a2349b17">
-<![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element is not clickable at point (760, 550)
-  (Session info: chrome=143.0.7499.169)
-Build info: version: '4.37.0', revision: '3c1da1e342'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.7'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [f8ba0c48b935344517c9eff9a2349b17, clickElement {id=f.EC54FACB7E2C79BEDD71DB0C35A967E4.d.9061B15DA4E64CE59AE472E3278B9BDF.e.202}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.169, chrome: {chromedriverVersion: 143.0.7499.192 (be2c1f4fd45..., userDataDir: C:\Users\vacz2\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:58902}, goog:processID: 3260, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:58902/devtoo..., se:cdpVersion: 143.0.7499.169, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[[[ChromeDriver: chrome on windows (f8ba0c48b935344517c9eff9a2349b17)] -> css selector: .card-body]] -> css selector: .card-body button:last-of-type]
-Session ID: f8ba0c48b935344517c9eff9a2349b17
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
-	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
-	at PageObjects.DashboardPage.addProductToCart(DashboardPage.java:46)
-	at StepDefinations.StepDefinationsImpl.user_added_the_product(StepDefinationsImpl.java:41)
-	at ?.user added the product ZARA COAT 3(file:///C:/Users/vacz2/OneDrive/Desktop/Selenium_Frameworks/EKart_Udemy_POM/src/test/java/Cucumber/SubmitOrder.feature:9)
-]]>
-</failure>
-<system-out><![CDATA[
-Given Land on Ecommerce webside.............................................passed
-Given Logged in with username VacZ@9464.com and password VacZ@9464..........passed
-When user added the product ZARA COAT 3.....................................failed
-And checkout the order......................................................skipped
-Then "THANKYOU FOR THE ORDER." message should be displayed on confirmationPage..skipped
+And fetch the price of iphone 13 pro........................................passed
+When click on view of iphone 13 pro.........................................passed
+Then Verify iphone 13 pro name and price value..............................passed
 ]]></system-out>
 </testcase>
 </testsuite>

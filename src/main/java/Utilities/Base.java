@@ -32,7 +32,7 @@ public class Base {
         Thread.sleep(100);
         // Zoom out the page to 50%
         //System.out.println("Zooming out to 50%");
-        jse.executeScript("document.body.style.zoom='70%'");
+        jse.executeScript("document.body.style.zoom='60%'");
         Thread.sleep(100);
     }
 
