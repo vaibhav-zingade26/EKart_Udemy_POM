@@ -25,8 +25,8 @@ Feature: Smoke Testing
         | username            | password  |
         | vaibhav26@gmail.com | VacZ@1234 |
 
-  @Today
-    Scenario Outline:
+
+    Scenario Outline:Verify the price and product
     Given Logged in with username <username> and password <password>
     And fetch the price of <product>
     When click on view of <product>
@@ -34,6 +34,9 @@ Feature: Smoke Testing
     Examples:
       | username            | password  | product|
       | vaibhav26@gmail.com | VacZ@1234 |iphone 13 pro|
+      | vaibhav26@gmail.com | VacZ@1234 |ZARA COAT 3|
+      | vaibhav26@gmail.com | VacZ@1234 |ADIDAS ORIGINAL|
+      | vaibhav26@gmail.com | VacZ@1234 |Automation 8|
 
 
 

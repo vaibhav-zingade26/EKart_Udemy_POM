@@ -82,7 +82,7 @@ public class DashboardPage extends Base {
 
 
     public void verifyProductAndPrice(String prod,String p){
-        String product = driver.findElement(By.xpath("//h2[text()='iphone 13 pro']")).getText();
+        String product = driver.findElement(By.xpath("//h2[text()='"+prod+"']")).getText();
         String price=driver.findElement(By.xpath("//h3[contains(text(),'$')]")).getText();
         System.out.print("price on dashboard is : "+price+" & ");
         System.out.print("price on view is : "+p+" ");
