@@ -47,4 +47,15 @@ Feature: Smoke Testing
       | username            | password  |product1 | product2|
       | vaibhav26@gmail.com | VacZ@1234 |ADIDAS ORIGINAL|ZARA COAT 3|
 
+  @Today
+  Scenario Outline:Verify search button
+    Given Logged in with username <username> and password <password>
+    When user search the products <product1>
+    Then <product1> should come on dashboard
+    When user search the products <product2>
+    Then <product2> should come on dashboard
+    Examples:
+      | username            | password  |product1 | product2|
+      | vaibhav26@gmail.com | VacZ@1234 |ADIDAS ORIGINAL|ZARA COAT 3|
+
 
