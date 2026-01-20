@@ -26,6 +26,9 @@ public class CartPage extends Base {
     @FindBy(xpath = "//div//h1[contains( text( ),'No Products')]")
     WebElement EmptyMsg;
 
+    @FindBy(xpath = "//span[contains(text(),'Total')]/following-sibling::span")
+    WebElement Total;
+
     public boolean verifyAddedProd(String one, String two){
         List<WebElement> pr=p;
         ArrayList<String > b= new ArrayList<>();
@@ -48,6 +51,10 @@ public class CartPage extends Base {
     checkOut.click();
     PlaceOrder submitOrder = new PlaceOrder(driver);
     return submitOrder;
+    }
+
+    public String totalAmount(){
+        return Total.getText();
     }
 
 }

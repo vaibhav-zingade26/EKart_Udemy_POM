@@ -1,7 +1,10 @@
 package StepDefinitions;
 
 import BasePkg.BaseTest;
-import PageObjects.*;
+import PageObjects.CartPage;
+import PageObjects.DashboardPage;
+import PageObjects.OrderPage;
+import PageObjects.PlaceOrder;
 import io.cucumber.java.After;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.en.And;
@@ -9,7 +12,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.qameta.allure.Epic;
-import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.testng.Assert;
@@ -21,10 +23,12 @@ public class StepDefinationsImpl extends BaseTest {
     DashboardPage dashboardPage;
     CartPage cartPage;
     PlaceOrder placeOrder;
-    String countryName="India";
-    String orderPageUrl="https://rahulshettyacademy.com/client/#/dashboard/myorders";
-    String cartPageUrl="https://rahulshettyacademy.com/client/#/dashboard/cart";
+    String countryName = "India";
+    String orderPageUrl = "https://rahulshettyacademy.com/client/#/dashboard/myorders";
+    String cartPageUrl = "https://rahulshettyacademy.com/client/#/dashboard/cart";
     String price;
+    String totalValue;
+
 
 
     @Given("Land on Ecommerce webside")
@@ -33,8 +37,8 @@ public class StepDefinationsImpl extends BaseTest {
     }
 
     @Given("^Logged in with username (.+) and password (.+)$")
-    public void logged_in_with_username_and_password(String username,String password) throws InterruptedException {
-        dashboardPage=landingPage.loginApp(username,password);
+    public void logged_in_with_username_and_password(String username, String password) throws InterruptedException {
+        dashboardPage = landingPage.loginApp(username, password);
     }
 
     @Given("^user added the product (.+)$")
@@ -44,8 +48,8 @@ public class StepDefinationsImpl extends BaseTest {
 
     @And("checkout the order")
     public void checkout_the_order() throws InterruptedException {
-        cartPage=dashboardPage.goToCart();
-        placeOrder=cartPage.checkOut();
+        cartPage = dashboardPage.goToCart();
+        placeOrder = cartPage.checkOut();
     }
 
  /*   @Then("message should be displayed on confirmationPage.")
@@ -85,42 +89,63 @@ public class StepDefinationsImpl extends BaseTest {
 
     @When("User clicked on orders")
     public void user_clicked_on_orders() {
-        OrderPage orderPage= new OrderPage(driver);
+        OrderPage orderPage = new OrderPage(driver);
         orderPage.goToOrders();
 
     }
+
     @Then("User should land on orders page")
     public void user_should_land_on_orders_page() {
-      Assert.assertEquals(getCurrentURL(),orderPageUrl);
+        Assert.assertEquals(getCurrentURL(), orderPageUrl);
 
     }
 
     @And("User came back on and dashboard click on cart")
     public void userCameBackOnAndDashboardClickOnCart() throws InterruptedException {
         driver.navigate().back();
-        CartPage cart= new CartPage(driver);
+        CartPage cart = new CartPage(driver);
         cart.goToCart();
     }
 
     @Then("User should land on Cart page")
     public void userShouldLandOnCartPage() {
-        Assert.assertEquals(getCurrentURL(),cartPageUrl);
+        Assert.assertEquals(getCurrentURL(), cartPageUrl);
     }
 
     @And("^fetch the price of (.+)$")
     public void fetchThePriceOfProduct(String product) {
-        price=dashboardPage.priceOfProduct(product);
-        System.out.println("price of the "+product+": "+price);
+        price = dashboardPage.priceOfProduct(product);
+        System.out.println("price of the " + product + ": " + price);
 
     }
 
     @When("^click on view of (.+)$")
     public void clickOnViewOfProduct(String product) {
-       dashboardPage.clickOnView(product);
+        dashboardPage.clickOnView(product);
     }
 
     @Then("^Verify (.+) name and price value$")
     public void verifyProductNameAndPriceValue(String pro) {
-     dashboardPage.verifyProductAndPrice(pro,price);
+        dashboardPage.verifyProductAndPrice(pro, price);
+    }
+
+    @When("^user added the products (.+) and (.+)$")
+    public void userAddedTheProductsProductAndProduct(String product1,String product2) throws InterruptedException {
+        dashboardPage.addProductToCart(product1);
+        dashboardPage.addProductToCart(product2);
+        String p1=dashboardPage.getValuesofProduct(product1);
+        String p2=dashboardPage.getValuesofProduct(product2);
+        int totalValueInt=Integer.parseInt(p1.substring(2))+Integer.parseInt(p2.substring(2));
+        totalValue=String.valueOf(totalValueInt);
+        totalValue="$"+totalValue;
+        System.out.println("totalValue is :" +totalValue);
+    }
+
+    @Then("Verify total amount in cartPage")
+    public void verifyTotalAmountInCartPage() throws InterruptedException {
+        CartPage cart = new CartPage(driver);
+        cart.goToCart();
+        System.out.println("TotalValue "+ cart.totalAmount());
+        Assert.assertEquals(cart.totalAmount(),totalValue);
     }
 }

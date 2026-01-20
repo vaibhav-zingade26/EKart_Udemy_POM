@@ -52,7 +52,11 @@ public class DashboardPage extends Base {
         desiredProd.findElement(addToCart).click();
         Thread.sleep(2000);
         WebElement desiredProd2=getProductByName(productName1);
-        desiredProd.findElement(addToCart).click();
+        desiredProd2.findElement(addToCart).click();
+    }
+
+    public String getValuesofProduct(String product){
+        return driver.findElement(By.xpath("//b[contains(text(),'"+product+"')]/parent::h5//following-sibling::div/div[contains(text(),'$')]")).getText();
     }
 
     public void search(){

@@ -38,5 +38,13 @@ Feature: Smoke Testing
       | vaibhav26@gmail.com | VacZ@1234 |ADIDAS ORIGINAL|
       | vaibhav26@gmail.com | VacZ@1234 |Automation 8|
 
+  @Today
+  Scenario Outline:Verify total amount of shopping
+    Given Logged in with username <username> and password <password>
+    When user added the products <product1> and <product2>
+    Then Verify total amount in cartPage
+    Examples:
+      | username            | password  |product1 | product2|
+      | vaibhav26@gmail.com | VacZ@1234 |ADIDAS ORIGINAL|ZARA COAT 3|
 
 
