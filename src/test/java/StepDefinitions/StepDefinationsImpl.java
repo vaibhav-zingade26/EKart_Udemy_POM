@@ -148,4 +148,16 @@ public class StepDefinationsImpl extends BaseTest {
         System.out.println("TotalValue "+ cart.totalAmount());
         Assert.assertEquals(cart.totalAmount(),totalValue);
     }
+
+    @When("^user search the products (.+)$")
+    public void userSearchTheProductsProduct(String product) {
+        dashboardPage.searchProduct(product);
+    }
+
+    @Then("^(.+) should come on dashboard$")
+    public void productShouldComeOnDashboard(String product) {
+        String appearedProduct=dashboardPage.productDisplayed();
+        System.out.println("The Displayed product is : "+appearedProduct);
+        Assert.assertEquals(product,appearedProduct);
+    }
 }

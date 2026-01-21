@@ -1,10 +1,7 @@
 package PageObjects;
 
 import Utilities.Base;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
@@ -24,6 +21,12 @@ public class DashboardPage extends Base {
     //List<WebElement> cardBody=driver.findElements(By.cssSelector(".card-body"));
     @FindBy(css=".card-body")
     List<WebElement> products;
+
+    @FindBy(xpath = "//div[@class='py-2 border-bottom ml-3']//input[@name='search' and @type='text']")
+    WebElement Search;
+
+    @FindBy(xpath = "//h5//b")
+    WebElement productAfterSeach;
 
     By productBy=By.cssSelector(".card-body");
     By addToCart=By.cssSelector(".card-body button:last-of-type");
@@ -96,6 +99,27 @@ public class DashboardPage extends Base {
         System.out.println(" ");
         Assert.assertEquals(p,price);
         Assert.assertEquals(prod.toLowerCase(),product.toLowerCase());
+    }
+
+    public void searchProduct(String prod){
+        //div[@class='py-2 border-bottom ml-3']//input[@name='search' and @type='text']
+        //explicitWait(Search);
+        Search.sendKeys(prod + Keys.ENTER);
+
+    }
+
+    public String productDisplayed(){
+        try {
+            explicitWait(productAfterSeach);
+            return productAfterSeach.getText();
+        }catch (StaleElementReferenceException e){
+            explicitWait(productAfterSeach);
+            return productAfterSeach.getText();
+        }finally {
+            Search.clear();
+        }
+
+
     }
 }
 

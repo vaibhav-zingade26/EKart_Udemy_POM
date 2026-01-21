@@ -1,4 +1,4 @@
-Feature: Smoke Testing
+Feature: Regression Testing of Let's Shop Application
 
   Background:
     Given Land on Ecommerce webside
@@ -38,7 +38,7 @@ Feature: Smoke Testing
       | vaibhav26@gmail.com | VacZ@1234 |ADIDAS ORIGINAL|
       | vaibhav26@gmail.com | VacZ@1234 |Automation 8|
 
-  @Today
+
   Scenario Outline:Verify total amount of shopping
     Given Logged in with username <username> and password <password>
     When user added the products <product1> and <product2>
@@ -55,7 +55,14 @@ Feature: Smoke Testing
     When user search the products <product2>
     Then <product2> should come on dashboard
     Examples:
-      | username            | password  |product1 | product2|
+      | username            | password  |product1       | product2  |
       | vaibhav26@gmail.com | VacZ@1234 |ADIDAS ORIGINAL|ZARA COAT 3|
 
-
+  @NegativeTests
+  Scenario Outline: Negative test for login
+    Given Logged in with username <username> and password <password>
+    Then message <msg> should displayed on login Page
+    Examples:
+      | username            | password | msg                        |
+      | vaibhav26@gmail.com | frgferge |Incorrect email or password.|
+      | vaibhav26@gmail.com | f4f4fr   |Incorrect email or password.|
