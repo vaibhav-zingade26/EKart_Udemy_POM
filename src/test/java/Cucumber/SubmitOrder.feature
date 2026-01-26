@@ -38,7 +38,7 @@ Feature: Regression Testing of Let's Shop Application
       | vaibhav26@gmail.com | VacZ@1234 |ADIDAS ORIGINAL|
       | vaibhav26@gmail.com | VacZ@1234 |Automation 8|
 
-
+  @Today
   Scenario Outline:Verify total amount of shopping
     Given Logged in with username <username> and password <password>
     When user added the products <product1> and <product2>
@@ -47,7 +47,7 @@ Feature: Regression Testing of Let's Shop Application
       | username            | password  |product1 | product2|
       | vaibhav26@gmail.com | VacZ@1234 |ADIDAS ORIGINAL|ZARA COAT 3|
 
-  @Today
+
   Scenario Outline:Verify search button
     Given Logged in with username <username> and password <password>
     When user search the products <product1>

@@ -20,21 +20,36 @@ public class DashboardPage extends Base {
 
     //List<WebElement> cardBody=driver.findElements(By.cssSelector(".card-body"));
     @FindBy(css=".card-body")
-    List<WebElement> products;
-
-    @FindBy(xpath = "//div[@class='py-2 border-bottom ml-3']//input[@name='search' and @type='text']")
-    WebElement Search;
+    private List<WebElement> products;
 
     @FindBy(xpath = "//h5//b")
-    WebElement productAfterSeach;
+    private List<WebElement> productName;
 
-    By productBy=By.cssSelector(".card-body");
-    By addToCart=By.cssSelector(".card-body button:last-of-type");
+    @FindBy(xpath = "//div[@class='py-2 border-bottom ml-3']//input[@name='search' and @type='text']")
+    private WebElement Search;
+
+    @FindBy(xpath = "//h5//b")
+    private WebElement productAfterSeach;
+
+    private final By productBy=By.cssSelector(".card-body");
+    private final By addToCart=By.cssSelector(".card-body button:last-of-type");
+    private final By productByName=By.xpath("//h5//b");
+
+
+
 
     public List<WebElement> getListOfProducts() {
         explicitWait(productBy);
         return products;
+
     }
+
+    public List<WebElement> getListOfProductsName() {
+        explicitWait(productByName);
+        return productName;
+
+    }
+
 
     public WebElement getProductByName(String productName){
         WebElement desiredProd=getListOfProducts().stream().filter(zara->

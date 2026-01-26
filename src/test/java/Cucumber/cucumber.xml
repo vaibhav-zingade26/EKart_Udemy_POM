@@ -1,111 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="64.274" tests="11" skipped="0" failures="1" errors="0">
-<testcase classname="Regression Testing of Let's Shop Application" name="Positive test on submitting order - Example #1.1" time="9.287">
-<system-out><![CDATA[
-Given Land on Ecommerce webside.............................................passed
-Given Logged in with username vaibhav26@gmail.com and password VacZ@1234....passed
-When user added the product ADIDAS ORIGINAL.................................passed
-And checkout the order......................................................passed
-Then "THANKYOU FOR THE ORDER." message should be displayed on confirmationPage..passed
-]]></system-out>
-</testcase>
-<testcase classname="Regression Testing of Let's Shop Application" name="Positive test on submitting order - Example #1.2" time="7.461">
-<system-out><![CDATA[
-Given Land on Ecommerce webside.............................................passed
-Given Logged in with username VacZ@9464.com and password VacZ@9464..........passed
-When user added the product ZARA COAT 3.....................................passed
-And checkout the order......................................................passed
-Then "THANKYOU FOR THE ORDER." message should be displayed on confirmationPage..passed
-]]></system-out>
-</testcase>
-<testcase classname="Regression Testing of Let's Shop Application" name="User able to go on orders and Cart page - Example #1.1" time="5.861">
-<system-out><![CDATA[
-Given Land on Ecommerce webside.............................................passed
-Given Logged in with username vaibhav26@gmail.com and password VacZ@1234....passed
-When User clicked on orders.................................................passed
-Then User should land on orders page........................................passed
-And User came back on and dashboard click on cart...........................passed
-Then User should land on Cart page..........................................passed
-]]></system-out>
-</testcase>
-<testcase classname="Regression Testing of Let's Shop Application" name="Verify the price and product - Example #1.1" time="7.372">
-<system-out><![CDATA[
-Given Land on Ecommerce webside.............................................passed
-Given Logged in with username vaibhav26@gmail.com and password VacZ@1234....passed
-And fetch the price of iphone 13 pro........................................passed
-When click on view of iphone 13 pro.........................................passed
-Then Verify iphone 13 pro name and price value..............................passed
-]]></system-out>
-</testcase>
-<testcase classname="Regression Testing of Let's Shop Application" name="Verify the price and product - Example #1.2" time="4.27">
-<system-out><![CDATA[
-Given Land on Ecommerce webside.............................................passed
-Given Logged in with username vaibhav26@gmail.com and password VacZ@1234....passed
-And fetch the price of ZARA COAT 3..........................................passed
-When click on view of ZARA COAT 3...........................................passed
-Then Verify ZARA COAT 3 name and price value................................passed
-]]></system-out>
-</testcase>
-<testcase classname="Regression Testing of Let's Shop Application" name="Verify the price and product - Example #1.3" time="2.918">
-<system-out><![CDATA[
-Given Land on Ecommerce webside.............................................passed
-Given Logged in with username vaibhav26@gmail.com and password VacZ@1234....passed
-And fetch the price of ADIDAS ORIGINAL......................................passed
-When click on view of ADIDAS ORIGINAL.......................................passed
-Then Verify ADIDAS ORIGINAL name and price value............................passed
-]]></system-out>
-</testcase>
-<testcase classname="Regression Testing of Let's Shop Application" name="Verify the price and product - Example #1.4" time="4.093">
-<system-out><![CDATA[
-Given Land on Ecommerce webside.............................................passed
-Given Logged in with username vaibhav26@gmail.com and password VacZ@1234....passed
-And fetch the price of Automation 8.........................................passed
-When click on view of Automation 8..........................................passed
-Then Verify Automation 8 name and price value...............................passed
-]]></system-out>
-</testcase>
-<testcase classname="Regression Testing of Let's Shop Application" name="Verify total amount of shopping - Example #1.1" time="8.126">
+<testsuite name="Cucumber" time="12.051" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="Regression Testing of Let's Shop Application" name="Verify total amount of shopping - Example #1.1" time="11.732">
 <system-out><![CDATA[
 Given Land on Ecommerce webside.............................................passed
 Given Logged in with username vaibhav26@gmail.com and password VacZ@1234....passed
 When user added the products ADIDAS ORIGINAL and ZARA COAT 3................passed
 Then Verify total amount in cartPage........................................passed
-]]></system-out>
-</testcase>
-<testcase classname="Regression Testing of Let's Shop Application" name="Verify search button - Example #1.1" time="6.091">
-<failure type="java.lang.AssertionError" message="expected [AUTOMATION 8] but found [ADIDAS ORIGINAL]">
-<![CDATA[java.lang.AssertionError: expected [AUTOMATION 8] but found [ADIDAS ORIGINAL]
-	at org.testng.Assert.fail(Assert.java:111)
-	at org.testng.Assert.failNotEquals(Assert.java:1578)
-	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
-	at org.testng.Assert.assertEquals(Assert.java:132)
-	at org.testng.Assert.assertEquals(Assert.java:656)
-	at org.testng.Assert.assertEquals(Assert.java:666)
-	at StepDefinitions.StepDefinationsImpl.productShouldComeOnDashboard(StepDefinationsImpl.java:161)
-	at ✽.ADIDAS ORIGINAL should come on dashboard(file:///C:/Users/vacz2/OneDrive/Desktop/Selenium_Frameworks/EKart_Udemy_POM/src/test/java/Cucumber/SubmitOrder.feature:54)
-]]>
-</failure>
-<system-out><![CDATA[
-Given Land on Ecommerce webside.............................................passed
-Given Logged in with username vaibhav26@gmail.com and password VacZ@1234....passed
-When user search the products ADIDAS ORIGINAL...............................passed
-Then ADIDAS ORIGINAL should come on dashboard...............................failed
-When user search the products ZARA COAT 3...................................skipped
-Then ZARA COAT 3 should come on dashboard...................................skipped
-]]></system-out>
-</testcase>
-<testcase classname="Regression Testing of Let's Shop Application" name="Negative test for login - Example #1.1" time="4.035">
-<system-out><![CDATA[
-Given Land on Ecommerce webside.............................................passed
-Given Logged in with username vaibhav26@gmail.com and password frgferge.....passed
-Then message Incorrect email or password. should displayed on login Page....passed
-]]></system-out>
-</testcase>
-<testcase classname="Regression Testing of Let's Shop Application" name="Negative test for login - Example #1.2" time="4.425">
-<system-out><![CDATA[
-Given Land on Ecommerce webside.............................................passed
-Given Logged in with username vaibhav26@gmail.com and password f4f4fr.......passed
-Then message Incorrect email or password. should displayed on login Page....passed
 ]]></system-out>
 </testcase>
 </testsuite>

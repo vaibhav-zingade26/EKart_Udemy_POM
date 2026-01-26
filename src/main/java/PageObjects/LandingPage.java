@@ -17,25 +17,25 @@ public class LandingPage extends Base {
     //WebElement email=driver.findElement(By.id("userEmail"));
 
     @FindBy(id="userEmail")
-    WebElement email;
+    private WebElement email;
 
     @FindBy(id="userPassword")
-    WebElement pwd;
+    private WebElement pwd;
 
     @FindBy(id="login")
-    WebElement login;
+    private WebElement login;
 
     @FindBy(xpath = "//button[contains(text(),' Sign Out ')]")
-    WebElement logOut;
+    private WebElement logOut;
 
     //div[aria-label='Incorrect email or password.']
     //document.querySelector(".ng-tns-c4-8.ng-star-inserted.ng-trigger.ng-trigger-flyInOut.ngx-toastr.toast-error")
 
     @FindBy(xpath = "//div[@aria-label='Incorrect email or password.']")
-    WebElement errorMessage;
+    private WebElement errorMessage;
 
     @FindBy(xpath="//div[contains(text(), 'Email')]")
-    WebElement errForEmail;
+    private WebElement errForEmail;
 
     public DashboardPage loginApp(String emailId, String Password) throws InterruptedException {
         email.sendKeys(emailId);

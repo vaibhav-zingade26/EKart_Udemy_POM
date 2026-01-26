@@ -18,7 +18,7 @@ public class OrderPage extends Base {
     }
 
     @FindBy(css="tr td:nth-child(3)")
-    List<WebElement> orderedProducts;
+    private List<WebElement> orderedProducts;
 
     public boolean validateProductOrdered(String productName) {
         for(WebElement p:orderedProducts){

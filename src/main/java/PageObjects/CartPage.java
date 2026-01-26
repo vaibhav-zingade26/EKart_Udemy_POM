@@ -18,16 +18,16 @@ public class CartPage extends Base {
         PageFactory.initElements(driver,this);
     }
     @FindBy (xpath="//button[normalize-space()='Checkout']")
-    WebElement checkOut;
+    private WebElement checkOut;
     @FindBy(xpath = "//div[@class='cartSection']//h3")
-    List<WebElement> p;
+    private List<WebElement> p;
     @FindBy(xpath = "//button[@class='btn btn-danger']")
-    List<WebElement> deleteProd;
+    private List<WebElement> deleteProd;
     @FindBy(xpath = "//div//h1[contains( text( ),'No Products')]")
-    WebElement EmptyMsg;
+    private WebElement EmptyMsg;
 
     @FindBy(xpath = "//span[contains(text(),'Total')]/following-sibling::span")
-    WebElement Total;
+    private WebElement Total;
 
     public boolean verifyAddedProd(String one, String two){
         List<WebElement> pr=p;

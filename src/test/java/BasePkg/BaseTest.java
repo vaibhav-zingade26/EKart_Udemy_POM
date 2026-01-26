@@ -27,9 +27,10 @@ public class BaseTest {
     //public static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
     public WebDriver driver;
     public LandingPage landingPage;
+    public Properties prop;
 
     public WebDriver initilizeDriver() throws IOException {
-        Properties prop = new Properties();
+        prop = new Properties();
         FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + "//src//main//java//resources//GlobalData.properties");
         prop.load(fis);
         String browserName = System.getProperty("browser")!=null ? System.getProperty("browser"):prop.getProperty("browser");

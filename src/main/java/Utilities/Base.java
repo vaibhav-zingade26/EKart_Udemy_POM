@@ -27,6 +27,8 @@ public class Base {
     @FindBy(css="[routerlink*='myorders']")
     WebElement orders;
 
+    WebDriverWait w;
+
     public void zoomOutWebPage() throws InterruptedException {
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         Thread.sleep(100);
@@ -41,17 +43,20 @@ public class Base {
         for(WebElement b:a){
             b.click();
         }
-
-
     }
 
     public void explicitWait(By locator){
-        WebDriverWait w= new WebDriverWait(driver, Duration.ofSeconds(10));
+        w= new WebDriverWait(driver, Duration.ofSeconds(10));
         w.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
+    public void explicitWaitAddClick(By locator){
+        w= new WebDriverWait(driver, Duration.ofSeconds(10));
+        w.until(ExpectedConditions.visibilityOfElementLocated(locator)).click();
+    }
+
     public void explicitWait(WebElement ele){
-        WebDriverWait w= new WebDriverWait(driver, Duration.ofSeconds(20));
+        w= new WebDriverWait(driver, Duration.ofSeconds(20));
         w.until(ExpectedConditions.visibilityOf(ele));
     }
 
