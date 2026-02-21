@@ -16,33 +16,33 @@
     </properties>
 
     <profiles>
-    <!--profiling for purchase -->
-    <profile>
-        <id>purchase</id>
-        <build>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>3.2.5</version> <!-- latest version -->
-                    <configuration>
-                        <suiteXmlFiles>
-                            <suiteXmlFile>C:\Users\vacz2\OneDrive\Desktop\Selenium_Frameworks\EKart_Udemy_POM\purchase.xml</suiteXmlFile>
-                        </suiteXmlFiles>
-                    </configuration>
-                </plugin>
-            </plugins>
-        </build>
-    </profile>
-
+        <!--profiling for purchase
         <profile>
+            <id>purchase</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>3.2.5</version> - latest version
+                        <configuration>
+                            <suiteXmlFiles>
+                                <suiteXmlFile>C:\Users\vacz2\OneDrive\Desktop\Selenium_Frameworks\EKart_Udemy_POM\purchase.xml</suiteXmlFile>
+                            </suiteXmlFiles>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>-->
+
+        <!--<profile>
             <id>Regression</id>
             <build>
                 <plugins>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-surefire-plugin</artifactId>
-                        <version>3.2.5</version> <!-- latest version -->
+                        <version>3.2.5</version> - latest version
                         <configuration>
                             <suiteXmlFiles>
                                 <suiteXmlFile>C:\Users\vacz2\OneDrive\Desktop\Selenium_Frameworks\EKart_Udemy_POM\testng.xml</suiteXmlFile>
@@ -51,7 +51,7 @@
                     </plugin>
                 </plugins>
             </build>
-        </profile>
+        </profile> -->
 
         <profile>
             <id>Cucumber</id>
@@ -62,9 +62,9 @@
                         <artifactId>maven-surefire-plugin</artifactId>
                         <version>3.2.5</version> <!-- latest version -->
                         <configuration>
-                           <includes>
-                               <include>**TestNGRunner.java</include>
-                           </includes>
+                            <includes>
+                                <include>**TestNGRunner.java</include>
+                            </includes>
                         </configuration>
                     </plugin>
                 </plugins>
