@@ -12,10 +12,19 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 
 public class AddContacts {
+    WebDriver driver;
+
+    public void ById(String id,String value){
+        driver.findElement(By.id(id)).sendKeys(value);
+    }
+
+    public void ById(String id){
+        driver.findElement(By.id(id)).click();
+    }
 
     @Test(dataProvider = "fillContacts")
     public void tc01(String firstName,String lastName,String birthdate,String email,String phone,String street1,String street2,String city,String stateProvince,String postalCode,String country){
-        WebDriver driver= new ChromeDriver();
+        driver= new ChromeDriver();
         driver.get("https://thinking-tester-contact-list.herokuapp.com/");
         driver.manage().window().maximize();
         driver.findElement(By.id("email")).sendKeys("tes3t@fake.com");
@@ -43,22 +52,20 @@ public class AddContacts {
             System.out.println(e);
         }
 
-
         //add details
+        ById("firstName",firstName);
+        ById("lastName",lastName);
+        ById("birthdate",birthdate);
+        ById("email",email);
+        ById("phone",phone);
+        ById("street1",street1);
+        ById("street2",street2);
+        ById("city",city);
+        ById("stateProvince",stateProvince);
+        ById("country",country);
+        ById("postalCode",postalCode);
+        ById("submit");
 
-        driver.findElement(By.id("firstName")).sendKeys(firstName);
-        driver.findElement(By.id("lastName")).sendKeys(lastName);
-        driver.findElement(By.id("birthdate")).sendKeys(birthdate);
-        driver.findElement(By.id("email")).sendKeys(email);
-        driver.findElement(By.id("phone")).sendKeys(phone);
-        driver.findElement(By.id("street1")).sendKeys(street1);
-        driver.findElement(By.id("street2")).sendKeys(street2);
-        driver.findElement(By.id("city")).sendKeys(city);
-        driver.findElement(By.id("stateProvince")).sendKeys(stateProvince);
-        driver.findElement(By.id("postalCode")).sendKeys(postalCode);
-        driver.findElement(By.id("country")).sendKeys(country);
-        driver.findElement(By.id("submit")).click();
-        driver.close();
     }
 
 @DataProvider

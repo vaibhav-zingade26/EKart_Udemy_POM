@@ -42,4 +42,56 @@ public class CapGeminiStates {
         selectByCountryName(driver,country,"India");
     }
 
+    @Test
+    public void alert(){
+        driver= new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.navigate().to("https://demo.automationtesting.in/Alerts.html");
+        driver.findElement(By.id("OKTab")).click();
+        driver.switchTo().alert().accept();
+
+    }
+
+    @Test
+    public void frames(){
+        driver= new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get("https://demo.automationtesting.in/Frames.html");
+        driver.switchTo().frame(driver.findElement(By.xpath("//iframe[@id='singleframe']")));
+        driver.findElement(By.xpath("//input[@type='text']")).sendKeys("Vaibhav");
+
+        //now switch to default fra,e
+
+        driver.switchTo().defaultContent();
+
+        driver.findElement(By.xpath("//a[@href='#Multiple']")).click();
+
+        //go to multiples frame
+
+        WebElement frame1=driver.findElement(By.xpath("//iframe[@src='MultipleFrames.html']"));
+        driver.switchTo().frame(frame1);
+
+        //now go inside single frame
+     /*   WebDriverWait wait= new WebDriverWait(driver,Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("//iframe[@src='SingleFrames.html']"));*/
+        try {
+         /*   WebDriverWait wait= new WebDriverWait(driver,Duration.ofSeconds(10));
+            wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("//iframe[@src='SingleFrame.html']"));*/
+            WebElement frame2=driver.findElement(By.xpath("//iframe[@src='SingleFrame.html']"));
+            driver.switchTo().frame(frame2);
+            driver.findElement(By.xpath("//input[@type='text']")).sendKeys("Vaibhav");
+        }catch (Exception e){
+            System.out.println("Frame is not present");
+        }
+
+        driver.switchTo().defaultContent();
+        driver.findElement(By.xpath("//a[@href='Index.html']")).click();
+
+
+
+
+
+
+    }
+
 }
