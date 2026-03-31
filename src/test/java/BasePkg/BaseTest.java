@@ -18,6 +18,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.sql.*;
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.List;
@@ -95,6 +96,13 @@ public class BaseTest {
 
     public String getCurrentURL(){
         return driver.getCurrentUrl();
+    }
+
+    public ResultSet dbConnection(String url,String user,String pwd) throws SQLException {
+        Connection conn= DriverManager.getConnection(url,user,pwd);
+        Statement stmt=conn.createStatement();
+        String query="Select * from Table";
+        return stmt.executeQuery(query);
     }
 
 

@@ -5,16 +5,22 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import extentReports.ExtentReportsClass;
 import org.openqa.selenium.WebDriver;
-import org.testng.ITestContext;
-import org.testng.ITestListener;
-import org.testng.ITestResult;
-import org.testng.Reporter;
+import org.testng.*;
+import org.testng.annotations.ITestAnnotation;
 
-public class Listeners extends BaseTest implements ITestListener {
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
+
+public class Listeners extends BaseTest implements ITestListener, IAnnotationTransformer {
 
     ExtentReports extent = ExtentReportsClass.extentReport();
     ExtentTest test;
     ThreadLocal<ExtentTest> extentThread = new ThreadLocal<ExtentTest>();
+
+    public void transform(
+            ITestAnnotation annotation, Class testClass, Constructor testConstructor, Method testMethod) {
+        annotation.setRetryAnalyzer(Retry.class);
+    }
 
     @Override
     public void onTestStart(ITestResult result) {
