@@ -29,7 +29,7 @@ public class SubmitOrder extends BaseTest {
         Assert.assertEquals(confirmMsg,"THANKYOU FOR THE ORDER.");
     }
 
-    @Test(dependsOnMethods = {"TC01"})
+    @Test(dependsOnMethods = {"TC01_Basic_Add_Product"})
     public void TC02_Validate_Product() throws IOException, InterruptedException {
         //In orders page verify submitted order
         DashboardPage dashboardPage=landingPage.loginApp("vaibhav26@gmail.com","VacZ@1234");

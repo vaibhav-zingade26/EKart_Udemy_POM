@@ -10,7 +10,7 @@ public class Retry implements IRetryAnalyzer {
     public boolean retry(ITestResult result) {
             if(count<threshold){
             count++;
-            System.out.println("Attempting the by "+result.getMethod()+" | "+count);
+            System.out.println("Attempting the by "+result.getName()+" | "+count);
             return true;
         }
         return false;
